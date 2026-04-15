@@ -336,28 +336,37 @@ nav {
   transition: all 1s ease;
 }
 .signal-line.visible { opacity: 1; transform: translateY(0); }
-.signal-form {
-  display: flex; align-items: center; justify-content: center;
-  gap: 0; max-width: 480px; margin: 0 auto;
+
+.signal-form-full {
+  display: flex; flex-direction: column;
+  gap: 1px; max-width: 480px; margin: 0 auto;
   opacity: 0; transform: translateY(20px);
   transition: all 1s ease 0.3s;
 }
-.signal-form.visible { opacity: 1; transform: translateY(0); }
-.signal-input {
-  flex: 1; background: transparent;
-  border: 1px solid var(--grey); border-right: none;
-  padding: 16px 24px;
+.signal-form-full.visible { opacity: 1; transform: translateY(0); }
+
+.signal-field {
+  background: transparent;
+  border: 1px solid var(--grey);
+  padding: 14px 20px;
   font-family: 'Outfit', sans-serif;
   font-size: 13px; font-weight: 300;
-  color: var(--white); letter-spacing: 1px;
+  color: var(--white); letter-spacing: 0.5px;
   outline: none; transition: border-color 0.3s ease;
+  resize: none;
 }
-.signal-input::placeholder {
-  color: var(--text-dim); letter-spacing: 2px;
+.signal-field::placeholder {
+  color: var(--text-dim); letter-spacing: 1px;
   font-size: 11px; text-transform: uppercase;
 }
-.signal-input:focus { border-color: var(--gold-dim); }
-.signal-btn {
+.signal-field:focus { border-color: var(--gold-dim); }
+
+.signal-textarea {
+  min-height: 80px;
+  line-height: 1.6;
+}
+
+.signal-btn-full {
   background: transparent;
   border: 1px solid var(--grey);
   padding: 16px 32px;
@@ -367,13 +376,15 @@ nav {
   color: var(--gold); cursor: pointer;
   transition: all 0.3s ease;
 }
-.signal-btn:hover {
+.signal-btn-full:hover {
   background: var(--gold); color: var(--black);
   border-color: var(--gold);
 }
+
 .signal-note {
   font-size: 11px; color: var(--text-dim);
   margin-top: 20px; letter-spacing: 1px;
+  font-style: italic;
   opacity: 0; transition: all 1s ease 0.5s;
 }
 .signal-note.visible { opacity: 1; }
@@ -452,9 +463,8 @@ footer {
   .signal { padding: 100px 28px; }
   footer { padding: 60px 28px; flex-direction: column; gap: 48px; }
   .footer-info { text-align: left; }
-  .signal-form { flex-direction: column; max-width: 100%; }
-  .signal-input { border-right: 1px solid var(--grey); border-bottom: none; width: 100%; }
-  .signal-btn { width: 100%; }
+  .signal-form-full { max-width: 100%; }
+  .signal-btn-full { width: 100%; }
 }
 @media (max-width: 600px) {
   .hero-title { letter-spacing: 0.2em; }
@@ -591,11 +601,13 @@ footer {
 
 <section class="signal">
   <p class="signal-line">We don't announce.<br>We signal.</p>
-  <div class="signal-form">
-    <input type="email" class="signal-input" placeholder="Enter the frequency" aria-label="Email address">
-    <button class="signal-btn" onclick="handleSignal()">Tune in</button>
+  <div class="signal-form-full">
+    <input type="text" class="signal-field" id="sig-name" placeholder="Your name" aria-label="Name">
+    <input type="email" class="signal-field" id="sig-email" placeholder="Your email" aria-label="Email address">
+    <textarea class="signal-field signal-textarea" id="sig-dream" placeholder="Tell us one thing about yourself that few people agree with -- in correlation to your dream and future vision." aria-label="Your vision" rows="4"></textarea>
+    <button class="signal-btn-full" onclick="handleSignal()">Send signal</button>
   </div>
-  <p class="signal-note">No noise. No spam. Only when it matters.</p>
+  <p class="signal-note">We read everything. If it resonates, we respond.</p>
 </section>
 
 <footer>
@@ -623,26 +635,33 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.manifesto p, .venture-item, .ventures-header, .emblem-logo, .emblem-text, .signal-line, .signal-form, .signal-note')
+document.querySelectorAll('.manifesto p, .venture-item, .ventures-header, .emblem-logo, .emblem-text, .signal-line, .signal-form-full, .signal-note')
   .forEach(el => observer.observe(el));
 
 function handleSignal() {
-  const input = document.querySelector('.signal-input');
-  const email = input.value.trim();
-  if (!email || !email.includes('@')) {
-    input.style.borderColor = '#8a3333';
-    setTimeout(() => input.style.borderColor = '', 1500);
+  const name = document.getElementById('sig-name').value.trim();
+  const email = document.getElementById('sig-email').value.trim();
+  const dream = document.getElementById('sig-dream').value.trim();
+
+  if (!name || !email || !email.includes('@') || !dream) {
+    document.querySelectorAll('.signal-field').forEach(f => {
+      if (!f.value.trim() || (f.type === 'email' && !f.value.includes('@'))) {
+        f.style.borderColor = '#8a3333';
+        setTimeout(() => f.style.borderColor = '', 1500);
+      }
+    });
     return;
   }
-  const btn = document.querySelector('.signal-btn');
-  btn.textContent = 'LOCKED IN';
+
+  const subject = encodeURIComponent('Signal from ' + name);
+  const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nThe Dream:\n' + dream);
+  window.location.href = 'mailto:meeww8@gmail.com?subject=' + subject + '&body=' + body;
+
+  const btn = document.querySelector('.signal-btn-full');
+  btn.textContent = 'SIGNAL SENT';
   btn.style.background = 'var(--gold)';
   btn.style.color = 'var(--black)';
   btn.style.borderColor = 'var(--gold)';
-  input.value = '';
-  input.placeholder = 'SIGNAL RECEIVED';
-  input.disabled = true;
-  btn.disabled = true;
 }
 
 document.addEventListener('mousemove', (e) => {
