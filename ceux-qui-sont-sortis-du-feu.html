@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ceux qui sont sortis du feu</title>
+<meta name="description" content="Un essai pour Kwibuka 32. Trente-deux ans depuis le génocide rwandais. Sur le souvenir, la reconstruction, et ce que les mains ont rebâti.">
+<meta property="og:title" content="Ceux qui sont sortis du feu">
+<meta property="og:description" content="Un essai pour Kwibuka 32. Trente-deux ans depuis le génocide rwandais. Sur le souvenir, la reconstruction, et ce que les mains ont rebâti.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://meww.ac/ceux-qui-sont-sortis-du-feu">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ceux qui sont sortis du feu">
+<meta name="twitter:description" content="Un essai pour Kwibuka 32. Trente-deux ans depuis le génocide rwandais. Sur le souvenir, la reconstruction, et ce que les mains ont rebâti.">
+<link rel="alternate" hreflang="en" href="https://meww.ac/the-ones-who-walked-out-of-the-fire">
+<link rel="alternate" hreflang="fr" href="https://meww.ac/ceux-qui-sont-sortis-du-feu">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #3a3a3a;
+    --ink-quiet: #6a6a6a;
+    --paper-pure: #ffffff;
+    --rule: #d4d0c8;
+    --accent: #8a6d3b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper-pure);
+    color: var(--ink);
+    font-family: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    line-height: 1.7;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .container { max-width: 680px; margin: 0 auto; padding: 80px 32px 120px; }
+  .eyebrow {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-quiet);
+    font-weight: 500;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--rule);
+    vertical-align: middle;
+    margin: 0 16px;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(38px, 6vw, 60px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .byline {
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-quiet);
+    margin-bottom: 56px;
+  }
+  .divider { display: flex; justify-content: center; align-items: center; margin: 48px 0; }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 80px;
+  }
+  .divider-mark {
+    margin: 0 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--accent);
+    letter-spacing: 0.5em;
+    padding-left: 0.5em;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin: 64px 0 32px;
+    text-align: center;
+  }
+  h2 .numeral {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  p { margin-bottom: 24px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  p.lede {
+    font-size: 23px;
+    line-height: 1.55;
+    font-weight: 400;
+    text-align: left;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  p.lede::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 68px;
+    float: left;
+    line-height: 0.85;
+    margin: 8px 10px 0 0;
+    color: var(--accent);
+  }
+  em { font-style: italic; }
+  .closing-block {
+    margin: 40px 0;
+    padding: 28px 0;
+    text-align: center;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .witness-line {
+    text-align: center;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 32px 0;
+  }
+  .standalone { text-align: left; font-size: 20px; margin-bottom: 14px; }
+  .standalone + .standalone { margin-top: -10px; }
+  .coda {
+    text-align: center;
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-quiet);
+  }
+  .coda-theme {
+    display: block;
+    margin-top: 12px;
+    font-style: normal;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    font-size: 13px;
+  }
+  ::selection { background: #f4ecd8; color: var(--ink); }
+  @media (max-width: 640px) {
+    body { font-size: 18px; line-height: 1.68; }
+    .container { padding: 56px 24px 80px; }
+    p { text-align: left; }
+    p.lede { font-size: 20px; }
+    p.lede::first-letter { font-size: 58px; }
+    h1 { font-size: 40px; }
+    h2 { font-size: 24px; margin: 48px 0 24px; }
+    .closing-block, .witness-line { font-size: 19px; }
+  }
+  @media print {
+    body { background: white; font-size: 12pt; line-height: 1.5; }
+    .container { max-width: 100%; padding: 0; }
+    h2 { page-break-after: avoid; }
+    p { orphans: 3; widows: 3; }
+  }
+</style>
+</head>
+<body>
+<article class="container">
+
+  <div class="eyebrow">Kwibuka 32 &middot; Avril 2026</div>
+
+  <h1>Ceux qui sont sortis du feu</h1>
+
+  <div class="byline">Un essai sur le souvenir, la reconstruction, et ce que les mains ont rebâti</div>
+
+  <div class="divider"><span class="divider-mark">&#10086;</span></div>
+
+  <p class="lede">Il existe une catégorie particulière d'être humain que seule la catastrophe est capable de produire.</p>
+
+  <p>Pas celui qui se désagrège sous sa pression. Pas celui qui la métabolise en amnésie. Celui qui absorbe la pleine tension, non diluée, de la pire chose qu'une civilisation peut s'infliger à elle-même, et qui ensuite, impossiblement, irrationnellement, en défi ouvert de toute attente probabiliste, se relève. Avance. Construit quelque chose à partir des décombres. Non pas parce que la souffrance s'est estompée, mais parce que la souffrance est devenue architecturale. Porteuse. Structurelle. Tissée si irrévocablement dans les fondations de leur être que l'extraire ferait s'effondrer toute la structure.</p>
+
+  <p>Le Rwanda a produit une génération entière de ces êtres. Et le monde commence à peine à comprendre l'ampleur de ce que cela signifie.</p>
+
+  <h2><span class="numeral">I</span>Les Cent Jours</h2>
+
+  <p>Entre avril et juillet 1994, la République du Rwanda est devenue le théâtre de l'extermination de masse la plus concentrée dans l'histoire documentée de la civilisation humaine.</p>
+
+  <p>En l'espace de cent jours, plus d'un million de personnes ont été systématiquement anéanties. Tutsi en grande majorité, mais aussi Hutu modérés et toute personne ayant refusé la complicité ou s'étant retrouvée sur le chemin de la violence. Le massacre n'était pas mécanisé. Il n'était pas industrialisé selon le paradigme de la Shoah, avec ses réseaux ferroviaires, ses chambres à gaz, et la distance bureaucratique entre l'ordre administratif et l'acte lui-même. Au Rwanda, le massacre était proche. Intime. Conduit à la machette, à la massue cloutée, à mains nues. Les voisins ont démantelé les voisins. Les enseignants ont égorgé leurs élèves. Le clergé a trahi ses fidèles. Le génocide n'a pas été exécuté par un appareil militaire distant opérant à distance institutionnelle. Il a été exécuté par le tissu social lui-même, inversé et transformé en arme.</p>
+
+  <p>L'intimité de ce qui s'est passé au Rwanda résiste aux cadres à travers lesquels l'atrocité est habituellement traitée. Il n'y avait pas de lignes de ravitaillement à couper. Pas d'usines à neutraliser depuis les airs. L'infrastructure de l'extermination était sociologique. Elle s'est propagée à travers les fréquences radio, à travers les documents d'identité hérités de l'époque coloniale, à travers les registres compilés au niveau communal par des administrateurs qui connaissaient les noms, les généalogies et les adresses de chaque personne qu'ils marquaient pour la mort. RTLM, Radio Télévision Libre des Mille Collines, diffusait coordonnées et exhortations en temps réel. Les ondes sont devenues le chef d'orchestre. La machette est devenue l'iconographie, mais l'instrument était l'information.</p>
+
+  <p>Mais la machette n'est pas l'horreur entière. Elle n'en est même pas la part la plus profonde.</p>
+
+  <p>La part la plus profonde, c'est que la main qui la tenait, la semaine précédente, avait emprunté du sucre à votre cuisine. Avait raccompagné votre enfant de l'école. Avait été assise à votre mariage. Avait été parrain de votre fils. La part la plus profonde, c'est que l'esprit humain est construit sur une présupposition fondamentale. Que la personne qui vit à côté de vous, qui partage votre langue, qui a mangé à votre table, n'est pas la personne qui viendra prendre votre vie. Toute l'architecture de l'existence humaine ordinaire repose sur cette présupposition. Au Rwanda, en cent jours, cette présupposition a été détonnée dans un million de foyers en même temps.</p>
+
+  <p>Il existe une forme particulière de catastrophe psychologique qui n'a pas de nom clinique, parce que les cadres occidentaux du traumatisme n'ont pas été conçus pour la contenir. C'est ce qui se produit quand la trahison arrive de l'intérieur du cercle de confiance si complètement, et de tant de directions à la fois, que la réalité elle-même perd ses repères. On ne peut plus s'appuyer sur sa compréhension du monde, parce que le monde que l'on comprenait était une fiction. Le maître n'était pas un maître. Le voisin n'était pas un voisin. Le prêtre n'était pas un prêtre. Quelque chose portant le visage de ces personnes avait pris leur place, et vous ne le saviez pas, et personne ne le savait, et le savoir n'est venu qu'avec la lame.</p>
+
+  <p>Voilà la couche de la blessure que le souvenir doit prendre en compte. Pas seulement les corps. La trahison. Pas seulement les morts. La fracture du contrat social au niveau cellulaire d'une civilisation. Les survivants d'autres atrocités parlent souvent d'un ennemi. Un régime. Une armée. Une machinerie venue d'ailleurs. Les survivants rwandais portent un poids plus dur. L'ennemi avait le visage de leur dimanche. L'ennemi avait été leur beau-frère. L'ennemi avait chanté aux mêmes funérailles. Et les survivants devaient malgré tout marcher sur les mêmes routes par la suite, passer devant les mêmes maisons, devant les gens qui avaient fait les choses, ou dont les proches les avaient faites, et reconstruire d'une manière ou d'une autre une vie dans laquelle l'existence elle-même demeurait possible.</p>
+
+  <p>Qu'ils l'aient fait n'est pas seulement un témoignage d'endurance. C'est une forme d'accomplissement humain pour laquelle la langue n'existe pas encore.</p>
+
+  <p>Plus d'un million de vies, anéanties. Pas comme abstractions. Pas comme tabulations démographiques sur le registre d'un statisticien. Comme pères qui n'accompagneraient plus jamais leurs filles nulle part. Comme mères dont les voix ne formeraient plus jamais l'architecture acoustique d'une maison. Comme enfants dont la forme a été volée avant même qu'elle puisse se former. Comme grands-parents qui portaient en eux la cartographie d'un Rwanda antérieur à la fracture, et qui ont péri avec cette cartographie non archivée. Chacune de ces vies était un monde souverain. Une constellation complète et irréplicable d'expérience, d'attachement, de connaissance accumulée, et de potentiel non réalisé. Et chacune a été oblitérée à la main.</p>
+
+  <h2><span class="numeral">II</span>Ce que les mains ont rebâti</h2>
+
+  <p>La main est un instrument étrange.</p>
+
+  <p>C'est la chose qui a tenu la machette. C'est aussi la chose qui a tenu l'enfant. C'est la chose qui a perpétré le meurtre, et c'est la chose qui, des semaines plus tard, sur la même colline, sous le même ciel, a commencé à enlever les décombres. La main du bourreau et la main du survivant étaient anatomiquement identiques. Cinq doigts. Une paume. Un poignet. Ce qui les séparait n'était pas la biologie. C'était la chose que la main choisissait de faire ensuite.</p>
+
+  <p>Et c'est cela, en définitive, le sujet plus vrai du récit.</p>
+
+  <p>Parce que tandis que la mémoire mondiale du Rwanda s'est fixée sur les mains qui ont tué, tout ce qui a suivi appartient à un ensemble de mains entièrement différent. Les mains qui ont enterré les morts. Les mains qui ont creusé des latrines dans les camps de déplacés. Les mains qui ont tenu d'autres mains dans des pièces où personne ne pouvait encore parler. Les mains qui ont ramassé une houe, un marteau, un tableau noir, un bébé, et qui ont commencé le travail déraisonnable, peu glorieux, quotidien, de continuer à être un peuple. Ces mains avaient toutes les justifications de se refermer en poings et de rester fermées pendant une génération. Elles ne l'ont pas fait.</p>
+
+  <p class="witness-line">Elles se sont ouvertes.</p>
+
+  <p>C'est ici que le ciel commence à se lever.</p>
+
+  <p>Parce que l'histoire du Rwanda n'est pas, dans son récit final, une histoire de ce qui a été pris. C'est une histoire de ce qui a été fait à partir de ce qui restait. Et ce qui a été fait est l'un des miracles silencieux du siècle moderne.</p>
+
+  <p>La prévision, après un génocide d'une telle saturation, était l'effondrement. La fragmentation. Des cycles sans fin de représailles transmis de génération en génération. C'est ce que les modèles projetaient. C'est ce que les experts anticipaient. Le Rwanda a refusé de se conformer aux modèles.</p>
+
+  <p>En l'espace d'une seule génération, le pays a été reconstruit. Pas du haut vers le bas, mais du sol vers le haut. Par les mains de gens dont les noms ne paraissent dans aucun journal. Par une veuve qui a planté un jardin sur la terre où son mari avait été tué. Par un enseignant qui est retourné dans une salle de classe où la moitié des pupitres étaient vides, et qui s'est tenu devant les enfants survivants, et qui a commencé la première leçon du Rwanda nouveau. Par un maçon qui a posé des briques pour un voisin dont la maison avait été détruite, sans rien demander en retour. Par des mères qui ont élevé des enfants dans des maisons où les silences portaient plus que les paroles, et qui ont choisi, contre toute raison disponible, de ne pas transmettre le poids tel quel.</p>
+
+  <p>Kigali s'est élevée. Non pas parce qu'il a été décrété qu'elle s'élève, mais parce que des millions de personnes ordinaires, chaque matin, ont décidé d'en construire un autre petit fragment. Routes. Marchés. Cliniques. Écoles. Une plantation de café replantée. Une station de radio reconvertie de la fréquence de la mort à la fréquence du chant. Un mariage célébré sur une colline où, quelques années plus tôt seulement, personne n'aurait cru qu'un mariage pouvait à nouveau s'y tenir.</p>
+
+  <p>Les tribunaux Gacaca, instances judiciaires constituées par les communautés et qui ont jugé près de deux millions d'affaires liées au génocide, sont devenus peut-être l'entreprise la plus ambitieuse de l'histoire de la justice transitionnelle. Ils étaient imparfaits. Ils ont attiré des critiques légitimes. Mais ils ont aussi été un acte de volonté collective sans véritable précédent. Un peuple entier choisissant, de concert, d'affronter la totalité de ce qui s'était produit. Non pour le supprimer. Non pour l'enterrer sous le silence ou l'incinérer dans la vengeance. Pour y faire face, pour le nommer, et pour bâtir un chemin vers l'avant qui n'exigeait pas de prétendre que cela ne s'était jamais produit.</p>
+
+  <p>Ce n'est pas la résilience au sens décoratif que l'usage contemporain a dilué dans le mot. C'est la résilience comme génie structural. La reconstruction délibérée et patiente d'une civilisation souveraine par des individus qui avaient vu cette civilisation se dévorer elle-même. Des individus qui avaient tout perdu, tous perdus, et qui ont choisi, en pleine connaissance de ce dont les êtres humains sont capables, de construire à nouveau malgré tout.</p>
+
+  <p>Le peuple du Rwanda n'a pas seulement survécu. Il a rédigé une réponse à la question que le siècle lui avait posée. Et la réponse qu'il a donnée appartient désormais à toute la famille humaine, que la famille humaine le sache ou non.</p>
+
+  <h2><span class="numeral">III</span>Les enfants de la conflagration</h2>
+
+  <p>Et puis il y a les enfants.</p>
+
+  <p>Pas les enfants qui ont été éteints, bien qu'on ne doive jamais leur permettre de quitter notre comptabilité morale, mais les enfants qui sont venus après. La génération qui est arrivée dans un monde déjà façonné par le feu. Ceux élevés à Montréal, à Bruxelles, à Nairobi, à Londres, à Kigali même. Ceux qui ont grandi dans des foyers où certains silences portaient plus d'information que n'importe quelle conversation parlée. Où le regard d'une mère pouvait changer de fréquence sans cause visible, captant un signal venant d'une coordonnée dans le temps qui précédait l'existence de ses enfants. Où l'amour opérait à une intensité qui frôlait la férocité, et où la structure était traitée comme sacrée, parce que les gens qui aimaient et qui structuraient comprenaient, au niveau le plus profond, à quelle vitesse les deux pouvaient être détruits.</p>
+
+  <p>Cette génération porte quelque chose que le monde extérieur n'a pas encore pleinement compris.</p>
+
+  <p>Elle porte la masse gravitationnelle de la mémoire héritée. Pas la pathologie au sens clinique, bien que cette dimension soit réelle et présente. Quelque chose d'une texture plus grande. Une lentille perceptuelle. Un filtre cognitif qui amplifie certaines fréquences et en assourdit d'autres. Une intolérance silencieuse et organique à la superficialité qui n'est pas amertume mais clarté. Une connaissance profonde et inébranlable que les choses ordinaires, un repas en famille, une soirée ininterrompue, un enfant qui rentre de l'école, ne sont pas garanties. Qu'elles sont sacrées, précisément parce qu'elles ont déjà été enlevées.</p>
+
+  <p>Et pourtant ces mêmes enfants portent autre chose. Quelque chose que le discours commémoratif manque souvent.</p>
+
+  <p>Ils portent l'espoir. Pas l'espoir mince et décoratif des slogans, mais l'espoir comme discipline. L'espoir comme quelque chose que l'on pratique. Parce qu'ils ont été élevés par des gens qui avaient toutes les raisons d'abandonner l'espoir entièrement, et qui ne l'ont pas fait. Et un enfant qui regarde ce choix être fait, silencieusement, dans une cuisine, à travers vingt années de matins, hérite de quelque chose de plus durable que l'optimisme. Il hérite de la preuve.</p>
+
+  <p>C'est l'héritage qui demeure ostensiblement absent du registre public. Pas la blessure. La métallurgie. La manière particulière dont un être humain est forgé quand il a été élevé par quelqu'un qui a été forgé dans le feu et qui a refusé de laisser le feu être le dernier mot.</p>
+
+  <p>Les survivants qui ont élevé ces enfants n'ont pas produit des êtres fragiles. Ils ont produit des êtres qui savent, au niveau cellulaire, que le monde peut être reconstruit. Parce qu'ils ont vu leurs parents le reconstruire. À partir de rien. À partir des cendres. À partir de la coordonnée exacte où chaque modèle déclarait le rétablissement impossible. Les enfants de la conflagration ne croient pas en l'impossibilité. Ils ont lu le registre.</p>
+
+  <h2><span class="numeral">IV</span>La fréquence du souvenir</h2>
+
+  <p>Kwibuka signifie « se souvenir » en kinyarwanda.</p>
+
+  <p>C'est l'ancrage de chaque mois d'avril. Les veillées aux chandelles. Les marches processionnelles. Les minutes silencieuses observées dans des pièces partout dans le monde. Les voix qui lisent à haute voix les noms de ceux qui ont été perdus, pour que les noms restent dans l'air là où les personnes qui les portaient se tenaient autrefois. Kwibuka 32. Trente-deux révolutions depuis les cent jours. Le thème de cette année : <em>Souviens-toi, Unis-toi, Renouvelle-toi.</em></p>
+
+  <p>Mais le souvenir, pour le peuple rwandais et sa diaspora, n'est pas un événement de calendrier. C'est une fréquence opérationnelle persistante. Le bourdonnement fondamental sous chaque accomplissement, chaque aspiration, chaque acte de construction. Il n'immobilise pas. Il propulse. Parce que lorsqu'on porte la mémoire accumulée de ce qui a été perdu, tout ce que l'on construit porte l'empreinte gravitationnelle de ce qui aurait pu être. Chaque entreprise lancée, chaque diplôme obtenu, chaque enfant guidé vers la compétence, chaque communauté assemblée à partir d'éléments dispersés est une réponse silencieuse à la question que le génocide a inscrite dans le registre historique : cela peut-il être enduré ?</p>
+
+  <p>La réponse, composée à travers trente-deux années et trois continents et des millions de vies reconstruites depuis le fondement vers le haut, n'est pas seulement oui.</p>
+
+  <div class="closing-block">Elle est : voyez ce que nous avons fait. Et voyez ensuite ce que nous sommes encore en train de devenir.</div>
+
+  <h2><span class="numeral">V</span>Le monde qui succède à celui-ci</h2>
+
+  <p>Il y a une tendance, lorsque le sujet est le génocide, à conclure dans l'obscurité. À laisser la masse gravitationnelle de la matière arrêter le récit dans une tonalité mineure permanente. L'instinct est compréhensible. L'énormité d'un million de vies volées résiste à tout cadre qui pourrait être pris pour une diminution.</p>
+
+  <p>Mais conclure dans l'obscurité, c'est remettre la rédaction du dernier chapitre à ceux qui ont fait la rupture. Et ils n'ont pas mérité ce privilège.</p>
+
+  <p>Le dernier chapitre s'écrit dans des endroits que personne ne filme. Dans la cuisine d'une femme qui avait onze ans en 1994 et qui cuisine maintenant le même ragoût que sa mère cuisinait, avec les mêmes mains, dans une maison que sa mère n'a jamais vue. Dans les marges d'un cahier tenu par un garçon à Kigali qui a décidé qu'il sera ingénieur, parce que la route devant son école est encore inégale et qu'il veut être celui qui la réparera. Dans les longues matinées peu spectaculaires de gens qui avaient toutes les raisons d'abandonner le pays au silence, et qui ont choisi à la place de continuer à se présenter. Voilà le vrai chapitre. Il ne fait pas tendance. Il ne s'annonce pas. Il s'accumule.</p>
+
+  <p>L'histoire du Rwanda n'est pas une histoire de survie. La survie est passive. La survie est la chose qui vous arrive. L'histoire du Rwanda est une histoire de quelque chose de plus ancien et de plus dur que la survie. Une histoire d'un peuple à qui on a donné l'éducation la plus violente concevable dans le programme de la cruauté humaine et qui a répondu non par une cruauté égale, mais par l'acte le plus radical disponible à l'esprit humain : la décision patiente et souveraine de bâtir quelque chose de meilleur que ce qui a été détruit.</p>
+
+  <p>Trente-deux ans plus tard, les enfants de ces bâtisseurs sont partout. Ils occupent chaque discipline, chaque ville, chaque pièce dans laquelle l'architecture du futur est en train d'être écrite. Ils portent une fréquence que le monde commence à peine à enregistrer. Une fréquence forgée dans le chapitre le plus catastrophique du vingtième siècle et calibrée, avec une intention délibérée, vers la proposition que le vingt-et-unième puisse être fait différemment.</p>
+
+  <p class="standalone">Ils ne demandent pas la permission.</p>
+
+  <p class="standalone">Ils n'attendent pas l'invitation.</p>
+
+  <p class="standalone">Ils sont déjà en train de construire.</p>
+
+  <p>Et ce qu'ils construisent porte la certitude silencieuse de gens qui ont déjà vu le pire que le monde puisse offrir, et qui ont décidé, bien avant que quiconque ne regarde, que le pire ne serait pas le dernier mot.</p>
+
+  <p>Le soleil se lève sur les collines du Rwanda chaque matin. Il s'est levé sur les cent jours. Il s'est levé le lendemain. Il se lève maintenant sur un pays, sur un peuple, et sur une génération, que le monde avait autrefois laissés pour perdus.</p>
+
+  <p>Nous nous souvenons d'eux. Nous nous souvenons de ce qui a été pris. Nous nous souvenons de ce qui a été bâti à sa place.</p>
+
+  <p class="witness-line">Et nous portons la lumière vers l'avant.</p>
+
+  <div class="coda">
+    Kwibuka 32
+    <span class="coda-theme">Souviens-toi &middot; Unis-toi &middot; Renouvelle-toi</span>
+  </div>
+
+</article>
+</body>
+</html>
