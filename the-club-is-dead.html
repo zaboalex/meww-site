@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Club Is Dead and Nobody Wants to Admit Who Killed It — Meww</title>
+<meta name="description" content="On what Gen Z stopped showing up for, and what they're afraid to ask for out loud.">
+
+<meta property="og:title" content="The Club Is Dead and Nobody Wants to Admit Who Killed It">
+<meta property="og:description" content="On what Gen Z stopped showing up for, and what they're afraid to ask for out loud.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://meww.ac/the-club-is-dead">
+<meta property="og:site_name" content="Meww">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Club Is Dead and Nobody Wants to Admit Who Killed It">
+<meta name="twitter:description" content="On what Gen Z stopped showing up for, and what they're afraid to ask for out loud.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700&family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #f5f1ea;
+  --bg-deep: #ebe5d8;
+  --bg-warm: #f0ebe0;
+  --ink: #0a0908;
+  --ink-soft: #2a2622;
+  --ink-mid: #4a4540;
+  --ink-faint: #7a756e;
+  --charcoal: #161310;
+  --oxblood: #6b0f1a;
+  --oxblood-deep: #4a0a13;
+  --oxblood-bright: #8a1422;
+  --rule: rgba(107, 15, 26, 0.22);
+  --rule-soft: rgba(10, 9, 8, 0.1);
+  --paper: #faf6ee;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Paper grain */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.15 0 0 0 0.95 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+/* Loader */
+.loader {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--oxblood);
+  transform-origin: left;
+  z-index: 200;
+  animation: loadBar 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes loadBar {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+
+/* Reading progress */
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--oxblood);
+  z-index: 199;
+  transition: width 0.1s linear;
+}
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 90;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 40px;
+  background: linear-gradient(to bottom, rgba(245,241,234,0.96), rgba(245,241,234,0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+  text-decoration: none;
+  font-variation-settings: "opsz" 144;
+  transition: color 0.3s ease;
+}
+
+.nav-logo:hover { color: var(--oxblood); }
+
+.nav-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+.nav-tag span { color: var(--oxblood); font-weight: 500; }
+
+/* ========== HERO ========== */
+.hero {
+  min-height: 100vh;
+  padding: 140px 32px 100px;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  animation: riseIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 64px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.hero-meta .tag {
+  background: var(--oxblood);
+  color: var(--paper);
+  padding: 6px 14px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+}
+
+.hero-meta .date { color: var(--ink-faint); }
+
+.hero-meta .reading-time { color: var(--ink-faint); }
+
+.hero-meta .reading-time::before {
+  content: '·';
+  margin-right: 16px;
+  color: var(--ink-faint);
+}
+
+/* The headline — massive, editorial, hangs off the grid */
+.hero-headline {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(58px, 13vw, 200px);
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.hero-headline .line {
+  display: block;
+}
+
+.hero-headline .strike {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-headline .strike::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -2%;
+  width: 104%;
+  height: clamp(6px, 1.2vw, 14px);
+  background: var(--oxblood);
+  transform: translateY(-50%) rotate(-1.5deg);
+  z-index: 1;
+}
+
+.hero-headline em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--oxblood);
+  font-variation-settings: "opsz" 144;
+}
+
+.hero-headline .ampersand {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--oxblood);
+  font-size: 0.9em;
+}
+
+/* Subhead block */
+.hero-sub-block {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: end;
+}
+
+.hero-subhead {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.3;
+  color: var(--ink-mid);
+  font-variation-settings: "opsz" 144;
+  max-width: 540px;
+}
+
+.hero-byline-bar {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  line-height: 2;
+}
+
+.hero-byline-bar .filed { color: var(--oxblood); font-weight: 500; }
+
+/* Scroll cue */
+.scroll-cue {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.scroll-cue::after {
+  content: '';
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, var(--oxblood), transparent);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(4px); }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 120px 24px 80px; min-height: auto; }
+  .hero-meta { gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+  .hero-sub-block { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; }
+  .hero-byline-bar { text-align: left; }
+  .scroll-cue { display: none; }
+}
+
+/* ========== ARTICLE ========== */
+article {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 80px 32px 80px;
+  position: relative;
+}
+
+/* Opening kicker */
+.kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  font-weight: 500;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kicker::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--oxblood);
+}
+
+/* Body */
+.prose p {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.62;
+  color: var(--ink);
+  margin-bottom: 28px;
+  letter-spacing: -0.005em;
+  font-variation-settings: "opsz" 16, "SOFT" 50;
+}
+
+.prose p:first-of-type::first-letter {
+  font-family: 'Fraunces', serif;
+  font-size: 108px;
+  font-weight: 700;
+  float: left;
+  line-height: 0.82;
+  padding: 12px 16px 0 0;
+  color: var(--oxblood);
+  font-variation-settings: "opsz" 144;
+}
+
+.prose em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+/* ========== SECTION MARKERS ========== */
+.chapter {
+  margin: 96px 0 64px;
+  text-align: center;
+  position: relative;
+}
+
+.chapter-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(72px, 10vw, 120px);
+  line-height: 0.9;
+  color: var(--oxblood);
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.03em;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.chapter-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.chapter-rule {
+  width: 64px;
+  height: 1px;
+  background: var(--oxblood);
+  margin: 0 auto;
+}
+
+/* ========== PULL QUOTE ========== */
+.pullquote {
+  margin: 80px -60px;
+  padding: 0;
+  position: relative;
+  text-align: center;
+}
+
+.pullquote q {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(32px, 5.4vw, 56px);
+  line-height: 1.08;
+  color: var(--charcoal);
+  letter-spacing: -0.025em;
+  font-variation-settings: "opsz" 144;
+  quotes: none;
+  padding: 0 20px;
+  position: relative;
+}
+
+.pullquote q::before,
+.pullquote q::after { content: none; }
+
+.pullquote::before {
+  content: '"';
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(120px, 18vw, 200px);
+  line-height: 0.6;
+  color: var(--oxblood);
+  opacity: 0.18;
+  font-variation-settings: "opsz" 144;
+  margin-bottom: -20px;
+}
+
+.pullquote .attribution {
+  margin-top: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  font-weight: 500;
+}
+
+.pullquote .attribution::before {
+  content: '— ';
+}
+
+/* ========== HUGE STAT BLOCK ========== */
+.stat-block {
+  margin: 96px -60px;
+  background: var(--charcoal);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+  padding: 64px 48px;
+}
+
+.stat-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--oxblood);
+}
+
+.stat-block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.stat-header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(250, 246, 238, 0.12);
+}
+
+.stat-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--oxblood-bright);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.stat-title {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.15;
+  color: var(--paper);
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.015em;
+  max-width: 580px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 48px 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.stat-cell {
+  position: relative;
+  padding-top: 16px;
+}
+
+.stat-cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 1px;
+  background: var(--oxblood);
+}
+
+.stat-figure {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(56px, 7vw, 80px);
+  line-height: 0.95;
+  color: var(--paper);
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+  font-variation-settings: "opsz" 144;
+}
+
+.stat-figure .pct {
+  font-size: 0.42em;
+  color: var(--oxblood-bright);
+  vertical-align: 38%;
+  margin-left: 1px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.stat-figure .unit {
+  font-size: 0.32em;
+  color: var(--ink-faint);
+  vertical-align: 50%;
+  margin-left: 4px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #b8b3a8;
+  letter-spacing: 0.005em;
+}
+
+.stat-source {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(250, 246, 238, 0.08);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 238, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+/* ========== THE MORNING-AFTER TABLE ========== */
+.compound-table {
+  margin: 80px -30px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+
+.compound-table-head {
+  padding: 28px 36px 20px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-deep);
+}
+
+.compound-table-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.compound-table-title {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.compound-row {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 80px;
+  gap: 24px;
+  padding: 22px 36px;
+  border-bottom: 1px solid var(--rule-soft);
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.compound-row:last-child {
+  border-bottom: none;
+}
+
+.compound-row:hover {
+  background: var(--bg-warm);
+}
+
+.compound-thing {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.compound-result {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+
+.compound-verdict {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: right;
+}
+
+.compound-verdict.up { color: var(--oxblood); }
+.compound-verdict.up::before {
+  content: '↗ ';
+}
+
+.compound-verdict.down { color: var(--ink-faint); }
+.compound-verdict.down::before {
+  content: '↘ ';
+}
+
+/* ========== KEY-VALUE FACT STRIP ========== */
+.fact-strip {
+  margin: 64px -30px;
+  padding: 36px 36px;
+  background: var(--bg-deep);
+  border-left: 4px solid var(--oxblood);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 28px;
+  align-items: baseline;
+}
+
+.fact-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.fact-value {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.3;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 144;
+}
+
+.fact-value .num {
+  color: var(--oxblood);
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* ========== CLOSING ========== */
+.coda {
+  margin: 120px -30px 0;
+  padding: 80px 40px;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-deep);
+  position: relative;
+}
+
+.coda::before,
+.coda::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--oxblood);
+  border-radius: 50%;
+  top: -4px;
+}
+
+.coda::before { left: 50%; transform: translateX(-50%); }
+.coda::after { display: none; }
+
+.coda-line {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(28px, 4.5vw, 48px);
+  line-height: 1.1;
+  color: var(--oxblood);
+  letter-spacing: -0.025em;
+  font-variation-settings: "opsz" 144;
+  margin-bottom: 16px;
+}
+
+.coda-sig {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 24px;
+}
+
+/* ========== FOOTER ========== */
+.essay-footer {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 60px 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.back-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.back-link:hover { color: var(--oxblood); }
+
+.share-row {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.share-row a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 400;
+}
+
+.share-row a:hover { color: var(--oxblood); }
+
+.site-footer {
+  text-align: center;
+  padding: 32px 32px 64px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.site-footer .meww {
+  color: var(--oxblood);
+  font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  nav { padding: 18px 22px; }
+  article { padding: 60px 22px 60px; }
+  .prose p { font-size: 18px; }
+  .prose p:first-of-type::first-letter { font-size: 84px; }
+  .pullquote { margin: 56px -10px; }
+  .stat-block { margin: 64px -22px; padding: 44px 28px; }
+  .stat-grid { gap: 32px 20px; }
+  .compound-table { margin: 56px -22px; }
+  .compound-row { grid-template-columns: 1fr; gap: 8px; padding: 18px 24px; }
+  .compound-verdict { text-align: left; }
+  .compound-table-head { padding: 22px 24px 16px; }
+  .fact-strip { margin: 48px -22px; padding: 28px 24px; grid-template-columns: 1fr; gap: 12px; }
+  .coda { margin: 80px -22px 0; padding: 56px 28px; }
+  .essay-footer { padding: 48px 22px 40px; flex-direction: column; align-items: flex-start; }
+  .chapter { margin: 72px 0 48px; }
+}
+</style>
+</head>
+<body>
+
+<div class="loader"></div>
+<div class="progress" id="progress"></div>
+
+<nav>
+  <a href="/" class="nav-logo">MEWW</a>
+  <div class="nav-tag">Journal / <span>Essay 002</span></div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+
+  <div class="hero-meta">
+    <span class="tag">Essay</span>
+    <span class="date">May 17, 2026</span>
+    <span class="reading-time">9 min read</span>
+  </div>
+
+  <h1 class="hero-headline">
+    <span class="line">The <span class="strike">Club</span></span>
+    <span class="line">Is Dead</span>
+    <span class="line"><em>&</em> nobody</span>
+    <span class="line">wants to admit</span>
+    <span class="line">who killed it.</span>
+  </h1>
+
+  <div class="hero-sub-block">
+    <p class="hero-subhead">On what Gen Z stopped showing up for, and what they're afraid to ask for out loud.</p>
+    <div class="hero-byline-bar">
+      <div><span class="filed">Filed</span> &nbsp; Montréal</div>
+      <div>Issue 002 · Vol. I</div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">Scroll</div>
+
+</section>
+
+<!-- ========== ARTICLE ========== -->
+<article>
+
+  <div class="kicker">The Diagnosis</div>
+
+  <div class="prose">
+
+    <p>Clubs are raising drink prices because operators think the problem is margin. It isn't. The customer left, the customer isn't coming back, and every operator in the industry is still solving for a question Gen Z stopped asking ten years ago.</p>
+
+    <p>Everyone repeats the same headline. Gen Z drinks less. True, and useless. The shift underneath it is the one nobody wants to name. The club was never really about alcohol. Alcohol was the excuse. The room was about being seen, being witnessed, being chosen, being a character in a story that didn't exist when you woke up that morning. Alcohol lubricated the social risk. Remove the risk and the lubricant becomes optional. Remove the witness and the room becomes pointless.</p>
+
+    <p>Dating apps removed the witness. That's the part nobody wants to say out loud. Match Group and Bumble spent a decade convincing a generation that the most efficient way to meet someone was to swipe alone in a bedroom at 1am. They won. They got their market. Now they're posting earnings calls about declining engagement and announcing "IRL features" to rebuild the exact thing they spent ten years dismantling. Hinge just dropped a million dollars to fund offline social groups in New York, LA, and London.</p>
+
+    <div class="pullquote">
+      <q>The arsonist is selling fire extinguishers.</q>
+      <div class="attribution">Exhibit A</div>
+    </div>
+
+    <p>Then COVID hit at the worst possible age. Most of Gen Z was thirteen to twenty-two during lockdown, exactly the years when humans build social muscle. They built it online instead. They formed real friendships, real relationships, real communities, but through screens, in Discord servers, in DMs, in comment sections. They learned to be social inside echo chambers that already agreed with them. The muscle for high-stakes, in-person, unscripted interaction with a stranger never fully developed. And now they want it back, but they don't know how to ask for it without an activity attached.</p>
+
+    <p>The numbers tell on themselves.</p>
+
+    <!-- HERO STAT BLOCK -->
+    <div class="stat-block">
+      <div class="stat-header">
+        <div class="stat-eyebrow">Gen Z &nbsp;·&nbsp; The Receipts</div>
+        <div class="stat-title">Loneliest, most online, most performed — and aware of every bit of it.</div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-figure">75<span class="pct">%</span></div>
+          <div class="stat-label">Feel lonely at least once a week</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-figure">67<span class="pct">%</span></div>
+          <div class="stat-label">Uncomfortable with in-person interaction even when they want it</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-figure">4.5<span class="unit">hrs</span></div>
+          <div class="stat-label">Daily social media use. Highest cohort ever measured</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-figure">57<span class="pct">%</span></div>
+          <div class="stat-label">Name "content creator" as top career choice</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-figure">41<span class="pct">%</span></div>
+          <div class="stat-label">Use social platforms as primary search — beating Google</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-figure">66<span class="pct">%</span></div>
+          <div class="stat-label">Say loneliness has worsened since the pandemic</div>
+        </div>
+      </div>
+      <div class="stat-source">The post can't hug you back, and they know it.</div>
+    </div>
+
+    <p>Then look at where the energy went physically. Run clubs in every major city, four hundred people deep on a Tuesday night. Pickleball, a sport nobody under fifty was supposed to want, became the fastest-growing thing in North America. Pilates classes are sold out three weeks ahead. Peptides, cold plunges, saunas, longevity protocols, supplements that used to belong to bodybuilders are now showing up in twenty-three year old grocery carts. Affordable supper clubs grew by 35 percent. Wellness gatherings and run clubs grew by 130 percent. Every one of those formats has the same architecture. An activity at the center. A reason to show up that isn't "come meet people." A built-in excuse to be there. The activity carries the social weight so nobody has to.</p>
+
+    <p>At the top of the wealth curve, the signal got louder. The wealthy ones, the ones who used to fly to Ibiza for a weekend at Pacha, now fly to Ibiza for a Pilates retreat. They fly to Lisbon to run a half marathon, to Monaco for a race weekend, to Madrid for a padel tournament, to Augusta to walk eighteen holes.</p>
+
+    <!-- WEALTH STAT STRIP -->
+    <div class="fact-strip">
+      <div class="fact-label">Sports<br>Tourism</div>
+      <div class="fact-value"><span class="num">$609B</span> today, projected to hit <span class="num">$1.3T</span> by 2032. <span class="num">56%</span> of 16–34 travelers cross borders for a sporting event. Average trip: <span class="num">$1,500+</span>.</div>
+    </div>
+
+    <p>The flex shifted. Class no longer signals through bottle service. It signals through preservation, through proof of a body kept, through a flight stub from a marathon nobody at home knew you ran.</p>
+
+    <p>So the entire energy gradient, from the kid filming themselves in a basement gym to the founder on a private jet to Mallorca, points in one direction. Away from the club. Toward formats that compound.</p>
+
+    <!-- MORNING-AFTER TABLE -->
+    <div class="compound-table">
+      <div class="compound-table-head">
+        <div class="compound-table-eyebrow">The Morning-After Test</div>
+        <div class="compound-table-title">What did the night actually give you?</div>
+      </div>
+      <div class="compound-row">
+        <div class="compound-thing">Run club</div>
+        <div class="compound-result">You wake up proud. Tired in the right way. Friends added.</div>
+        <div class="compound-verdict up">Compounds</div>
+      </div>
+      <div class="compound-row">
+        <div class="compound-thing">Marathon weekend</div>
+        <div class="compound-result">Photos that outlive the year. A medal. A story.</div>
+        <div class="compound-verdict up">Compounds</div>
+      </div>
+      <div class="compound-row">
+        <div class="compound-thing">Posted clip that hit</div>
+        <div class="compound-result">Follower count that didn't exist yesterday. A new door.</div>
+        <div class="compound-verdict up">Compounds</div>
+      </div>
+      <div class="compound-row">
+        <div class="compound-thing">The club</div>
+        <div class="compound-result">You're recovering. The receipt is on the floor. Nobody texts.</div>
+        <div class="compound-verdict down">Taxes you</div>
+      </div>
+    </div>
+
+    <p>The competition for the nightlife industry isn't another club across the street. The competition is a $40 gym membership, a free Saturday run group, a $200 weekend marathon trip when the budget allows, a Pilates retreat in Ibiza for the ones who can afford it, and the four and a half hours a day every customer is already spending building their own audience on a phone. The wallet didn't close. The attention didn't close. They moved. The operators in Toronto and Montreal and New York are still trying to figure out what playlist will bring them back.</p>
+
+    <!-- CHAPTER II -->
+    <div class="chapter">
+      <span class="chapter-num">ii.</span>
+      <span class="chapter-label">The Demand</span>
+      <div class="chapter-rule"></div>
+    </div>
+
+    <p>But here's the part most people are missing. Gen Z is openly asking for this. They are organizing run clubs themselves. They are starting book clubs in their twenties. They are paying for supper clubs and silent reading nights and pottery classes and amateur padel leagues. The demand is screaming. They are not anti-social. They are anti-club. They want the gathering, they want the witness, they want the community, but they want it without the bar tab, without the swipe, without the awkward pretense that everyone showed up to drink when really everyone showed up to be seen. They want a third place. They have been asking for it loudly for three years.</p>
+
+    <p>The piece nobody is building is the bridge. The corridor between the phone and the room. Right now, Gen Z lives almost entirely on one side of that gap. Their friendships are on a phone. Their entertainment is on a phone. Their dating is on a phone. Their work is increasingly on a phone. The IRL gatherings exist, but they exist in isolation, disconnected from the online identity that consumes the other twenty hours of the day. The run club doesn't talk to the feed. The pottery class doesn't show up in the algorithm. The supper club ends and the night dies in a camera roll. Nothing carries.</p>
+
+    <!-- CHAPTER III -->
+    <div class="chapter">
+      <span class="chapter-num">iii.</span>
+      <span class="chapter-label">The Build</span>
+      <div class="chapter-rule"></div>
+    </div>
+
+    <p>The next venue is whoever builds that corridor. A format where the IRL gathering and the online identity are the same thing. Where showing up in the room is a content event. Where the room produces the footage, the footage feeds the feed, the feed brings the next room. Where your online presence is the proof you went, your offline presence is the proof you're real, and one stops being a substitute for the other. The phone stops competing with the room.</p>
+
+    <div class="pullquote">
+      <q>The room becomes the phone's reason to exist.</q>
+      <div class="attribution">The thesis</div>
+    </div>
+
+    <p>The contrarian play is obvious once you stop defending the old format. The next venue isn't trying to win back the drunk customer. It's the room that admits the customer became someone else entirely. A creator. An athlete. A protagonist. Someone who shows up already filming and already lonely in a way the feed can't fix.</p>
+
+    <p>The room is lit for capture, not for hiding. There's a house clipper team. You walk in, cameras are already running, and at the end of the night you get your footage in your DMs, edited, venue tagged. The bar still exists, but it pours matcha, mocktails, functional drinks, adaptogens. The margin works because the room stopped depending on drunk people to survive.</p>
+
+    <p>The activity carries the social risk. You don't show up to make friends. You show up to run, to play, to listen, to learn, to compete, to film. The friendship is the byproduct. The relationship is the byproduct. The footage is the byproduct. The activity is the cover story that lets a generation with atrophied social muscle walk through the door without panicking.</p>
+
+    <p>The matching layer rebuilds the magic the apps killed. You don't swipe to get in. You apply, or you're invited by someone already inside. The room curates itself. Meeting someone there means something again, because the room vouched for both of you. The filter is the feature. Scarcity is the feature. Being chosen is the feature.</p>
+
+    <p>Revenue stops being a drink ticket. It becomes a cover charge, a creator pass, brand partnerships paying to be placed in front of a camera already rolling, and travel packages built around the venue itself. The next venue isn't a building. It's a destination. A weekend. A reason to fly somewhere, or in the middle class version, a reason to drive two hours on a Friday. A venue that produces footage, status, and a memory in the same transaction.</p>
+
+    <p>The venue becomes a media company with a physical location. The attendees are the talent. The footage is the inventory. The brands are the buyers. The destination is the lure. The bridge between online and offline is the product. The economics finally tell the truth about what the building actually is.</p>
+
+    <p>If sports tourism is a trillion-dollar trip and the creator economy is on its way to half a trillion, the next nightlife format is a passenger on both.</p>
+
+    <p>The clubs will keep raising prices and wondering where everyone went. The apps will keep bolting on IRL features and wondering why nobody opens them. Meanwhile a generation is already in a park at 7am running ten kilometers with strangers who will become their actual friends, then editing the clip on the train ride home. The wealthy ones are on a plane to Spain. The middle class ones are driving to a 10K an hour outside the city. All of them are filming. All of them are posting. All of them are lonely. All of them are asking for a place to put it down. None of them are putting it down at the club.</p>
+
+    <p>The next venue is being built right now by the people who stopped trying to save the old format and started asking what this generation actually shows up for, and what they're afraid to ask for out loud.</p>
+
+  </div>
+
+  <!-- CODA -->
+  <div class="coda">
+    <div class="coda-line">The format is dead.<br>Long live the format.</div>
+    <div class="coda-sig">— end of file —</div>
+  </div>
+
+</article>
+
+<footer class="essay-footer">
+  <a href="/blabla" class="back-link">← Return to Journal</a>
+  <div class="share-row">
+    <a href="https://twitter.com/intent/tweet?text=The%20Club%20Is%20Dead%20and%20Nobody%20Wants%20to%20Admit%20Who%20Killed%20It.&url=https%3A%2F%2Fmeww.ac%2Fthe-club-is-dead" target="_blank" rel="noopener">Share on X</a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmeww.ac%2Fthe-club-is-dead" target="_blank" rel="noopener">Share on LinkedIn</a>
+  </div>
+</footer>
+
+<div class="site-footer">
+  © 2026 <span class="meww">MEWW</span> · Built in Montréal
+</div>
+
+<script>
+const progressEl = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const total = h.scrollHeight - h.clientHeight;
+  const pct = total > 0 ? (h.scrollTop / total) * 100 : 0;
+  progressEl.style.width = pct + '%';
+}, { passive: true });
+</script>
+
+</body>
+</html>
