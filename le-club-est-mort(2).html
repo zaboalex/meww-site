@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le club est mort, et personne ne veut admettre qui l'a tué — Meww</title>
+<meta name="description" content="Sur ce que la génération Z a cessé de chercher, et ce qu'elle a peur de demander tout haut.">
+
+<link rel="alternate" hreflang="fr" href="https://meww.ac/le-club-est-mort">
+<link rel="alternate" hreflang="en" href="https://meww.ac/the-club-is-dead">
+<link rel="canonical" href="https://meww.ac/le-club-est-mort">
+
+<meta property="og:title" content="Le club est mort, et personne ne veut admettre qui l'a tué">
+<meta property="og:description" content="Sur ce que la génération Z a cessé de chercher, et ce qu'elle a peur de demander tout haut.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://meww.ac/le-club-est-mort">
+<meta property="og:site_name" content="Meww">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:locale:alternate" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Le club est mort, et personne ne veut admettre qui l'a tué">
+<meta name="twitter:description" content="Sur ce que la génération Z a cessé de chercher, et ce qu'elle a peur de demander tout haut.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700&family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #f5f1ea;
+  --bg-deep: #ebe5d8;
+  --bg-warm: #f0ebe0;
+  --ink: #0a0908;
+  --ink-soft: #2a2622;
+  --ink-mid: #4a4540;
+  --ink-faint: #7a756e;
+  --charcoal: #161310;
+  --oxblood: #6b0f1a;
+  --oxblood-deep: #4a0a13;
+  --oxblood-bright: #8a1422;
+  --rule: rgba(107, 15, 26, 0.22);
+  --rule-soft: rgba(10, 9, 8, 0.1);
+  --paper: #faf6ee;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.15 0 0 0 0.95 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.loader {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--oxblood);
+  transform-origin: left;
+  z-index: 200;
+  animation: loadBar 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes loadBar {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--oxblood);
+  z-index: 199;
+  transition: width 0.1s linear;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 90;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 40px;
+  background: linear-gradient(to bottom, rgba(245,241,234,0.96), rgba(245,241,234,0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+  text-decoration: none;
+  font-variation-settings: "opsz" 144;
+  transition: color 0.3s ease;
+}
+
+.nav-logo:hover { color: var(--oxblood); }
+
+.nav-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+.nav-tag span { color: var(--oxblood); font-weight: 500; }
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: rgba(10, 9, 8, 0.04);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.lang-toggle a {
+  padding: 8px 14px;
+  color: var(--ink-faint);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.lang-toggle a:hover {
+  color: var(--oxblood);
+  background: rgba(107, 15, 26, 0.06);
+}
+
+.lang-toggle a.active {
+  background: var(--oxblood);
+  color: var(--paper);
+  cursor: default;
+}
+
+.lang-toggle a.active:hover {
+  background: var(--oxblood);
+  color: var(--paper);
+}
+
+.lang-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--rule);
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 140px 32px 100px;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  animation: riseIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 64px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.hero-meta .tag {
+  background: var(--oxblood);
+  color: var(--paper);
+  padding: 6px 14px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+}
+
+.hero-meta .date { color: var(--ink-faint); }
+
+.hero-meta .reading-time { color: var(--ink-faint); }
+
+.hero-meta .reading-time::before {
+  content: '·';
+  margin-right: 16px;
+  color: var(--ink-faint);
+}
+
+.hero-headline {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(54px, 11vw, 170px);
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.hero-headline .line {
+  display: block;
+}
+
+.hero-headline .strike {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-headline .strike::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -2%;
+  width: 104%;
+  height: clamp(6px, 1.2vw, 14px);
+  background: var(--oxblood);
+  transform: translateY(-50%) rotate(-1.5deg);
+  z-index: 1;
+}
+
+.hero-headline em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--oxblood);
+  font-variation-settings: "opsz" 144;
+}
+
+.hero-headline .ampersand {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--oxblood);
+  font-size: 0.9em;
+}
+
+.hero-sub-block {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: end;
+}
+
+.hero-subhead {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.3;
+  color: var(--ink-mid);
+  font-variation-settings: "opsz" 144;
+  max-width: 540px;
+}
+
+.hero-byline-bar {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  line-height: 2;
+}
+
+.hero-byline-bar .filed { color: var(--oxblood); font-weight: 500; }
+
+.scroll-cue {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.scroll-cue::after {
+  content: '';
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, var(--oxblood), transparent);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(4px); }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+  .nav-left { gap: 16px; }
+  .nav-tag { display: none; }
+  .hero { padding: 140px 24px 80px; min-height: auto; }
+  .hero-meta { gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+  .hero-sub-block { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; }
+  .hero-byline-bar { text-align: left; }
+  .scroll-cue { display: none; }
+}
+
+article {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 80px 32px 80px;
+  position: relative;
+}
+
+.kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  font-weight: 500;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kicker::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--oxblood);
+}
+
+.prose p {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.62;
+  color: var(--ink);
+  margin-bottom: 28px;
+  letter-spacing: -0.005em;
+  font-variation-settings: "opsz" 16, "SOFT" 50;
+}
+
+.prose p:first-of-type::first-letter {
+  font-family: 'Fraunces', serif;
+  font-size: 108px;
+  font-weight: 700;
+  float: left;
+  line-height: 0.82;
+  padding: 12px 16px 0 0;
+  color: var(--oxblood);
+  font-variation-settings: "opsz" 144;
+}
+
+.prose em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.chapter {
+  margin: 96px 0 64px;
+  text-align: center;
+  position: relative;
+}
+
+.chapter-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(72px, 10vw, 120px);
+  line-height: 0.9;
+  color: var(--oxblood);
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.03em;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.chapter-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.chapter-rule {
+  width: 64px;
+  height: 1px;
+  background: var(--oxblood);
+  margin: 0 auto;
+}
+
+.pullquote {
+  margin: 80px -60px;
+  padding: 0;
+  position: relative;
+  text-align: center;
+}
+
+.pullquote q {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(30px, 5vw, 50px);
+  line-height: 1.1;
+  color: var(--charcoal);
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144;
+  quotes: none;
+  padding: 0 20px;
+  position: relative;
+}
+
+.pullquote q::before,
+.pullquote q::after { content: none; }
+
+.pullquote::before {
+  content: '«';
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(120px, 18vw, 200px);
+  line-height: 0.6;
+  color: var(--oxblood);
+  opacity: 0.18;
+  font-variation-settings: "opsz" 144;
+  margin-bottom: -20px;
+}
+
+.pullquote .attribution {
+  margin-top: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  font-weight: 500;
+}
+
+.pullquote .attribution::before {
+  content: '— ';
+}
+
+.stat-block {
+  margin: 96px -60px;
+  background: var(--charcoal);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+  padding: 64px 48px;
+}
+
+.stat-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--oxblood);
+}
+
+.stat-block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.stat-header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(250, 246, 238, 0.12);
+}
+
+.stat-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--oxblood-bright);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.stat-title {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.15;
+  color: var(--paper);
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.015em;
+  max-width: 580px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 48px 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.stat-cell {
+  position: relative;
+  padding-top: 16px;
+}
+
+.stat-cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 1px;
+  background: var(--oxblood);
+}
+
+.stat-figure {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(56px, 7vw, 80px);
+  line-height: 0.95;
+  color: var(--paper);
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+  font-variation-settings: "opsz" 144;
+}
+
+.stat-figure .pct {
+  font-size: 0.42em;
+  color: var(--oxblood-bright);
+  vertical-align: 38%;
+  margin-left: 1px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.stat-figure .unit {
+  font-size: 0.32em;
+  color: var(--ink-faint);
+  vertical-align: 50%;
+  margin-left: 4px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #b8b3a8;
+  letter-spacing: 0.005em;
+}
+
+.stat-source {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(250, 246, 238, 0.08);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 238, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.compound-table {
+  margin: 80px -30px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+
+.compound-table-head {
+  padding: 28px 36px 20px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-deep);
+}
+
+.compound-table-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.compound-table-title {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.compound-row {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 110px;
+  gap: 24px;
+  padding: 22px 36px;
+  border-bottom: 1px solid var(--rule-soft);
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.compound-row:last-child {
+  border-bottom: none;
+}
+
+.compound-row:hover {
+  background: var(--bg-warm);
+}
+
+.compound-thing {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.compound-result {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+
+.compound-verdict {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: right;
+}
+
+.compound-verdict.up { color: var(--oxblood); }
+.compound-verdict.up::before {
+  content: '↗ ';
+}
+
+.compound-verdict.down { color: var(--ink-faint); }
+.compound-verdict.down::before {
+  content: '↘ ';
+}
+
+.fact-strip {
+  margin: 64px -30px;
+  padding: 36px 36px;
+  background: var(--bg-deep);
+  border-left: 4px solid var(--oxblood);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 28px;
+  align-items: baseline;
+}
+
+.fact-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.fact-value {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.3;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 144;
+}
+
+.fact-value .num {
+  color: var(--oxblood);
+  font-weight: 600;
+  font-style: normal;
+}
+
+.coda {
+  margin: 120px -30px 0;
+  padding: 80px 40px;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-deep);
+  position: relative;
+}
+
+.coda::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--oxblood);
+  border-radius: 50%;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.coda-line {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(28px, 4.5vw, 48px);
+  line-height: 1.1;
+  color: var(--oxblood);
+  letter-spacing: -0.025em;
+  font-variation-settings: "opsz" 144;
+  margin-bottom: 16px;
+}
+
+.coda-sig {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 24px;
+}
+
+.essay-footer {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 60px 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.back-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.back-link:hover { color: var(--oxblood); }
+
+.share-row {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.share-row a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 400;
+}
+
+.share-row a:hover { color: var(--oxblood); }
+
+.site-footer {
+  text-align: center;
+  padding: 32px 32px 64px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.site-footer .meww {
+  color: var(--oxblood);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  article { padding: 60px 22px 60px; }
+  .prose p { font-size: 18px; }
+  .prose p:first-of-type::first-letter { font-size: 84px; }
+  .pullquote { margin: 56px -10px; }
+  .stat-block { margin: 64px -22px; padding: 44px 28px; }
+  .stat-grid { gap: 32px 20px; }
+  .compound-table { margin: 56px -22px; }
+  .compound-row { grid-template-columns: 1fr; gap: 8px; padding: 18px 24px; }
+  .compound-verdict { text-align: left; }
+  .compound-table-head { padding: 22px 24px 16px; }
+  .fact-strip { margin: 48px -22px; padding: 28px 24px; grid-template-columns: 1fr; gap: 12px; }
+  .coda { margin: 80px -22px 0; padding: 56px 28px; }
+  .essay-footer { padding: 48px 22px 40px; flex-direction: column; align-items: flex-start; }
+  .chapter { margin: 72px 0 48px; }
+}
+</style>
+</head>
+<body>
+
+<div class="loader"></div>
+<div class="progress" id="progress"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="/" class="nav-logo">MEWW</a>
+    <div class="nav-tag">Journal / <span>Essai 002</span></div>
+  </div>
+  <div class="lang-toggle" role="group" aria-label="Langue">
+    <a href="/le-club-est-mort" class="active" aria-current="page">FR</a>
+    <span class="lang-divider"></span>
+    <a href="/the-club-is-dead" hreflang="en">EN</a>
+  </div>
+</nav>
+
+<section class="hero">
+
+  <div class="hero-meta">
+    <span class="tag">Essai</span>
+    <span class="date">17 mai 2026</span>
+    <span class="reading-time">9 min de lecture</span>
+  </div>
+
+  <h1 class="hero-headline">
+    <span class="line">Le <span class="strike">Club</span></span>
+    <span class="line">est mort,</span>
+    <span class="line"><em>&</em> personne</span>
+    <span class="line">ne veut admettre</span>
+    <span class="line">qui l'a tué.</span>
+  </h1>
+
+  <div class="hero-sub-block">
+    <p class="hero-subhead">Sur ce que la génération Z a cessé de chercher, et ce qu'elle a peur de demander tout haut.</p>
+    <div class="hero-byline-bar">
+      <div><span class="filed">Publié de</span> &nbsp; Montréal</div>
+      <div>Numéro 002 · Vol. I</div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">Défiler</div>
+
+</section>
+
+<article>
+
+  <div class="kicker">Le diagnostic</div>
+
+  <div class="prose">
+
+    <p>Les clubs augmentent le prix des consommations parce que les opérateurs pensent que le problème, c'est la marge. Ce ne l'est pas. Le client est parti, le client ne revient pas, et toute l'industrie est encore en train de résoudre une question que la génération Z a cessé de poser il y a 10 ans.</p>
+
+    <p>Tout le monde répète le même titre : la génération Z boit moins. C'est vrai, et c'est inutile. Le vrai changement, celui que personne ne veut nommer, est en dessous. Le club n'a jamais vraiment été à propos de l'alcool. L'alcool était l'excuse. La salle, elle, était à propos d'être vu, d'être témoigné, d'être choisi, d'être un personnage dans une histoire qui n'existait pas le matin même. L'alcool lubrifiait le risque social. Enlève le risque, et le lubrifiant devient optionnel. Enlève le témoin, et la salle perd sa raison d'être.</p>
+
+    <p>Les applications de rencontre ont enlevé le témoin. C'est la partie que personne ne veut dire tout haut. Match Group et Bumble ont passé 10 ans à convaincre une génération que la façon la plus efficace de rencontrer quelqu'un, c'était de swiper seul dans sa chambre à 1 h du matin. Ils ont gagné. Ils ont eu leur marché. Maintenant ils publient des résultats trimestriels qui annoncent un déclin de l'engagement, et ils lancent des « fonctionnalités IRL » pour reconstruire la chose même qu'ils ont passé 10 ans à démanteler. Hinge vient d'investir 1 M$ pour financer des groupes sociaux hors ligne à New York, LA et Londres.</p>
+
+    <div class="pullquote">
+      <q>L'incendiaire vend des extincteurs.</q>
+      <div class="attribution">Pièce à conviction A</div>
+    </div>
+
+    <p>Puis la COVID a frappé au pire âge possible. La majorité de la génération Z avait entre 13 et 22 ans pendant le confinement, exactement les années où l'humain construit son muscle social. Ils l'ont construit en ligne à la place. Ils ont formé de vraies amitiés, de vraies relations, de vraies communautés, mais à travers des écrans, dans des serveurs Discord, dans des DM, dans des sections de commentaires. Ils ont appris à être sociaux à l'intérieur de chambres d'écho qui étaient déjà d'accord avec eux. Le muscle pour l'interaction en personne, à haut risque, non scriptée, avec un étranger, ne s'est jamais complètement développé. Et maintenant ils le veulent en retour, mais ils ne savent pas comment le demander sans une activité attachée.</p>
+
+    <p>Les chiffres parlent d'eux-mêmes.</p>
+
+    <div class="stat-block">
+      <div class="stat-header">
+        <div class="stat-eyebrow">Génération Z &nbsp;·&nbsp; Les preuves</div>
+        <div class="stat-title">La plus seule, la plus connectée, la plus performée — et consciente de chaque morceau.</div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-figure">75<span class="pct">%</span></div>
+          <div class="stat-label">Se sentent seuls au moins une fois par semaine</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-figure">67<span class="pct">%</span></div>
+          <div class="stat-label">Inconfortables en personne même quand ils le veulent</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-figure">4,5<span class="unit">h</span></div>
+          <div class="stat-label">Par jour sur les réseaux sociaux. La cohorte la plus connectée jamais mesurée</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-figure">57<span class="pct">%</span></div>
+          <div class="stat-label">Nomment « créateur de contenu » comme premier choix de carrière</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-figure">41<span class="pct">%</span></div>
+          <div class="stat-label">Utilisent les réseaux sociaux comme moteur de recherche principal — devant Google</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-figure">66<span class="pct">%</span></div>
+          <div class="stat-label">Disent que la solitude a empiré depuis la pandémie</div>
+        </div>
+      </div>
+      <div class="stat-source">Le post ne peut pas te serrer dans ses bras, et ils le savent.</div>
+    </div>
+
+    <p>Regarde où l'énergie est allée physiquement. Des clubs de course dans chaque grande ville, 400 personnes un mardi soir. Le pickleball, un sport que personne sous 50 ans n'était censé vouloir, est devenu le sport à plus forte croissance en Amérique du Nord. Les cours de Pilates sont remplis 3 semaines à l'avance. Les peptides, les bains glacés, les saunas, les protocoles de longévité, les suppléments qui appartenaient autrefois aux culturistes apparaissent maintenant dans les paniers d'épicerie de jeunes de 23 ans. Les soupers-clubs abordables ont grossi de 35 %. Les rassemblements bien-être et les clubs de course ont grossi de 130 %. Chaque format a la même architecture. Une activité au centre. Une raison d'être là qui n'est pas « viens rencontrer du monde ». Une excuse intégrée. L'activité porte le poids social pour que personne n'ait à le porter.</p>
+
+    <p>Au sommet de la courbe de richesse, le signal a monté le volume. Les riches, ceux qui prenaient l'avion pour Ibiza pour une fin de semaine au Pacha, prennent maintenant l'avion pour Ibiza pour une retraite de Pilates. Ils volent vers Lisbonne pour courir un demi-marathon, vers Monaco pour une fin de semaine de course automobile, vers Madrid pour un tournoi de padel, vers Augusta pour marcher 18 trous.</p>
+
+    <div class="fact-strip">
+      <div class="fact-label">Tourisme<br>sportif</div>
+      <div class="fact-value">Industrie mondiale de <span class="num">609 G$</span> aujourd'hui, projetée à <span class="num">1,3 T$</span> d'ici 2032. <span class="num">56 %</span> des voyageurs de 16 à 34 ans traversent une frontière pour un événement sportif. Voyage moyen : <span class="num">1 500 $+</span>.</div>
+    </div>
+
+    <p>Le flex a changé. La classe ne se signale plus par le service aux bouteilles. Elle se signale par la préservation, par la preuve d'un corps tenu, par un talon de vol d'un marathon que personne à la maison ne savait que tu courais.</p>
+
+    <p>Tout le gradient d'énergie, du jeune qui se filme dans un sous-sol au fondateur dans un jet privé vers Majorque, pointe dans une direction. Loin du club. Vers des formats qui s'accumulent.</p>
+
+    <div class="compound-table">
+      <div class="compound-table-head">
+        <div class="compound-table-eyebrow">Le test du lendemain matin</div>
+        <div class="compound-table-title">Qu'est-ce que la soirée t'a réellement donné ?</div>
+      </div>
+      <div class="compound-row">
+        <div class="compound-thing">Club de course</div>
+        <div class="compound-result">Tu te réveilles fier. Fatigué dans le bon sens. Des amis ajoutés.</div>
+        <div class="compound-verdict up">S'accumule</div>
+      </div>
+      <div class="compound-row">
+        <div class="compound-thing">Fin de semaine de marathon</div>
+        <div class="compound-result">Des photos qui survivent à l'année. Une médaille. Une histoire.</div>
+        <div class="compound-verdict up">S'accumule</div>
+      </div>
+      <div class="compound-row">
+        <div class="compound-thing">Clip qui a frappé</div>
+        <div class="compound-result">Un nombre d'abonnés qui n'existait pas hier. Une porte qui s'ouvre.</div>
+        <div class="compound-verdict up">S'accumule</div>
+      </div>
+      <div class="compound-row">
+        <div class="compound-thing">Le club</div>
+        <div class="compound-result">Tu récupères. La facture est au sol. Personne n'écrit.</div>
+        <div class="compound-verdict down">Te taxe</div>
+      </div>
+    </div>
+
+    <p>La compétition pour l'industrie de la vie nocturne n'est pas le club d'en face. La compétition, c'est un abonnement de gym à 40 $, un groupe de course gratuit le samedi, un voyage de marathon à 200 $ la fin de semaine quand le budget le permet, une retraite de Pilates à Ibiza pour ceux qui en ont les moyens, et les 4 h 30 par jour que chaque client passe déjà à construire sa propre audience sur un téléphone. Le portefeuille ne s'est pas fermé. L'attention ne s'est pas fermée. Ils ont déménagé. Les opérateurs à Toronto, à Montréal, à New York, essaient encore de trouver la liste de lecture qui va les ramener.</p>
+
+    <div class="chapter">
+      <span class="chapter-num">ii.</span>
+      <span class="chapter-label">La demande</span>
+      <div class="chapter-rule"></div>
+    </div>
+
+    <p>Voici la partie que la plupart manquent. La génération Z demande ça ouvertement. Ils organisent eux-mêmes des clubs de course. Ils commencent des clubs de lecture dans la vingtaine. Ils paient pour des soupers-clubs, des soirées de lecture silencieuse, des cours de poterie, des ligues amateurs de padel. La demande crie. Ils ne sont pas anti-sociaux. Ils sont anti-club. Ils veulent le rassemblement, ils veulent le témoin, ils veulent la communauté, mais ils le veulent sans la facture du bar, sans le swipe, sans le faux semblant que tout le monde est là pour boire alors qu'en réalité tout le monde est là pour être vu. Ils veulent un troisième lieu. Ils le demandent fort depuis 3 ans.</p>
+
+    <p>La pièce que personne ne construit, c'est le pont. Le corridor entre le téléphone et la salle. En ce moment, la génération Z vit presque entièrement d'un côté de ce vide. Leurs amitiés sont sur un téléphone. Leur divertissement est sur un téléphone. Leurs rendez-vous sont sur un téléphone. Leur travail est de plus en plus sur un téléphone. Les rassemblements IRL existent, mais ils existent en isolation, déconnectés de l'identité en ligne qui consomme les 20 autres heures de la journée. Le club de course ne parle pas au fil. Le cours de poterie n'apparaît pas dans l'algorithme. Le souper-club se termine et la soirée meurt dans une pellicule. Rien ne se reporte.</p>
+
+    <div class="chapter">
+      <span class="chapter-num">iii.</span>
+      <span class="chapter-label">Le build</span>
+      <div class="chapter-rule"></div>
+    </div>
+
+    <p>Le prochain lieu, c'est celui qui construit ce corridor. Un format où le rassemblement IRL et l'identité en ligne sont la même chose. Où se présenter dans la salle est un événement de contenu. Où la salle produit la séquence, la séquence nourrit le fil, le fil ramène la prochaine salle. Où ta présence en ligne est la preuve que tu étais là, ta présence hors ligne est la preuve que tu es réel, et l'une cesse d'être un substitut à l'autre. Le téléphone arrête de compétitionner avec la salle.</p>
+
+    <div class="pullquote">
+      <q>La salle devient la raison d'exister du téléphone.</q>
+      <div class="attribution">La thèse</div>
+    </div>
+
+    <p>Le pari contrarian devient évident une fois qu'on arrête de défendre l'ancien format. Le prochain lieu n'essaie pas de récupérer le client soûl. C'est la salle qui admet que le client est devenu quelqu'un d'autre. Un créateur. Un athlète. Un protagoniste. Quelqu'un qui arrive déjà en train de filmer, et déjà seul d'une façon que le fil ne peut pas réparer.</p>
+
+    <p>La salle est éclairée pour la capture, pas pour se cacher. Il y a une équipe de clippeurs maison. Tu entres, les caméras tournent déjà, et à la fin de la soirée tu reçois ta séquence dans tes DM, montée, lieu identifié. Le bar existe encore, mais il sert du matcha, des cocktails sans alcool, des boissons fonctionnelles, des adaptogènes. La marge fonctionne parce que la salle a cessé de dépendre des gens soûls pour survivre.</p>
+
+    <p>L'activité porte le risque social. Tu n'arrives pas pour te faire des amis. Tu arrives pour courir, jouer, écouter, apprendre, compétitionner, filmer. L'amitié est le produit dérivé. La relation est le produit dérivé. La séquence est le produit dérivé. L'activité est l'excuse qui permet à une génération avec un muscle social atrophié de franchir la porte sans paniquer.</p>
+
+    <p>La couche de jumelage reconstruit la magie que les applications ont tuée. Tu ne swipes pas pour entrer. Tu fais une demande, ou tu es invité par quelqu'un déjà à l'intérieur. La salle se cure elle-même. Rencontrer quelqu'un là veut dire quelque chose à nouveau, parce que la salle a répondu pour vous deux. Le filtre est la fonctionnalité. La rareté est la fonctionnalité. Être choisi est la fonctionnalité.</p>
+
+    <p>Les revenus arrêtent d'être un billet pour une consommation. Ils deviennent un droit d'entrée, une passe créateur, des partenariats de marque payant pour être placés devant une caméra qui tourne déjà, et des forfaits de voyage construits autour du lieu lui-même. Le prochain lieu n'est pas un édifice. C'est une destination. Une fin de semaine. Une raison de prendre l'avion quelque part, ou dans la version classe moyenne, une raison de faire 2 heures de route un vendredi. Un lieu qui produit de la séquence, du statut et de la mémoire dans la même transaction.</p>
+
+    <p>Le lieu devient une entreprise de médias avec une adresse physique. Les participants sont le talent. La séquence est l'inventaire. Les marques sont les acheteurs. La destination est l'appât. Le pont entre le en-ligne et le hors-ligne est le produit. L'économie finit par dire la vérité sur ce que le bâtiment est vraiment.</p>
+
+    <p>Si le tourisme sportif est un voyage à 1 000 G$ et que l'économie des créateurs est en route vers un demi-billion, le prochain format de vie nocturne est passager dans les deux.</p>
+
+    <p>Les clubs vont continuer à monter les prix en se demandant où tout le monde est passé. Les applications vont continuer à boulonner des fonctionnalités IRL en se demandant pourquoi personne ne les ouvre. Pendant ce temps, une génération est déjà dans un parc à 7 h le matin en train de courir 10 km avec des étrangers qui vont devenir leurs vrais amis, puis monte le clip sur le trajet de retour. Les riches sont dans un avion pour l'Espagne. Ceux de la classe moyenne sont en train de rouler vers un 10 km à 1 heure de la ville. Tous filment. Tous publient. Tous sont seuls. Tous demandent un endroit où le déposer. Aucun d'entre eux ne le dépose au club.</p>
+
+    <p>Le prochain lieu se construit en ce moment par les gens qui ont arrêté d'essayer de sauver l'ancien format et qui ont commencé à demander ce que cette génération cherche vraiment, et ce qu'elle a peur de demander tout haut.</p>
+
+  </div>
+
+  <div class="coda">
+    <div class="coda-line">Le format est mort.<br>Longue vie au format.</div>
+    <div class="coda-sig">— fin du fichier —</div>
+  </div>
+
+</article>
+
+<footer class="essay-footer">
+  <a href="/blabla" class="back-link">← Retour au journal</a>
+  <div class="share-row">
+    <a href="https://twitter.com/intent/tweet?text=Le%20club%20est%20mort%2C%20et%20personne%20ne%20veut%20admettre%20qui%20l'a%20tu%C3%A9.&url=https%3A%2F%2Fmeww.ac%2Fle-club-est-mort" target="_blank" rel="noopener">Partager sur X</a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmeww.ac%2Fle-club-est-mort" target="_blank" rel="noopener">Partager sur LinkedIn</a>
+  </div>
+</footer>
+
+<div class="site-footer">
+  © 2026 <span class="meww">MEWW</span> · Bâti à Montréal
+</div>
+
+<script>
+const progressEl = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const total = h.scrollHeight - h.clientHeight;
+  const pct = total > 0 ? (h.scrollTop / total) * 100 : 0;
+  progressEl.style.width = pct + '%';
+}, { passive: true });
+</script>
+
+</body>
+</html>
