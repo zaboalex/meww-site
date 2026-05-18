@@ -6,11 +6,17 @@
 <title>The Club Is Dead and Nobody Wants to Admit Who Killed It — Meww</title>
 <meta name="description" content="On what Gen Z stopped showing up for, and what they're afraid to ask for out loud.">
 
+<link rel="alternate" hreflang="en" href="https://meww.ac/the-club-is-dead">
+<link rel="alternate" hreflang="fr" href="https://meww.ac/le-club-est-mort">
+<link rel="canonical" href="https://meww.ac/the-club-is-dead">
+
 <meta property="og:title" content="The Club Is Dead and Nobody Wants to Admit Who Killed It">
 <meta property="og:description" content="On what Gen Z stopped showing up for, and what they're afraid to ask for out loud.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://meww.ac/the-club-is-dead">
 <meta property="og:site_name" content="Meww">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_CA">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Club Is Dead and Nobody Wants to Admit Who Killed It">
@@ -54,7 +60,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Paper grain */
 body::before {
   content: '';
   position: fixed;
@@ -66,7 +71,6 @@ body::before {
   mix-blend-mode: multiply;
 }
 
-/* Loader */
 .loader {
   position: fixed;
   top: 0; left: 0;
@@ -83,7 +87,6 @@ body::before {
   100% { transform: scaleX(1); opacity: 0; }
 }
 
-/* Reading progress */
 .progress {
   position: fixed;
   top: 0; left: 0;
@@ -106,6 +109,12 @@ nav {
   background: linear-gradient(to bottom, rgba(245,241,234,0.96), rgba(245,241,234,0));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
 .nav-logo {
@@ -132,7 +141,54 @@ nav {
 
 .nav-tag span { color: var(--oxblood); font-weight: 500; }
 
-/* ========== HERO ========== */
+/* LANGUAGE TOGGLE */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: rgba(10, 9, 8, 0.04);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.lang-toggle a {
+  padding: 8px 14px;
+  color: var(--ink-faint);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.lang-toggle a:hover {
+  color: var(--oxblood);
+  background: rgba(107, 15, 26, 0.06);
+}
+
+.lang-toggle a.active {
+  background: var(--oxblood);
+  color: var(--paper);
+  cursor: default;
+}
+
+.lang-toggle a.active:hover {
+  background: var(--oxblood);
+  color: var(--paper);
+}
+
+.lang-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--rule);
+}
+
+/* HERO */
 .hero {
   min-height: 100vh;
   padding: 140px 32px 100px;
@@ -179,7 +235,6 @@ nav {
   color: var(--ink-faint);
 }
 
-/* The headline — massive, editorial, hangs off the grid */
 .hero-headline {
   font-family: 'Fraunces', serif;
   font-weight: 600;
@@ -227,7 +282,6 @@ nav {
   font-size: 0.9em;
 }
 
-/* Subhead block */
 .hero-sub-block {
   margin-top: 56px;
   display: grid;
@@ -259,7 +313,6 @@ nav {
 
 .hero-byline-bar .filed { color: var(--oxblood); font-weight: 500; }
 
-/* Scroll cue */
 .scroll-cue {
   position: absolute;
   bottom: 40px;
@@ -290,14 +343,16 @@ nav {
 }
 
 @media (max-width: 768px) {
-  .hero { padding: 120px 24px 80px; min-height: auto; }
+  nav { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+  .nav-left { gap: 16px; }
+  .nav-tag { display: none; }
+  .hero { padding: 140px 24px 80px; min-height: auto; }
   .hero-meta { gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
   .hero-sub-block { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; }
   .hero-byline-bar { text-align: left; }
   .scroll-cue { display: none; }
 }
 
-/* ========== ARTICLE ========== */
 article {
   max-width: 740px;
   margin: 0 auto;
@@ -305,7 +360,6 @@ article {
   position: relative;
 }
 
-/* Opening kicker */
 .kicker {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
@@ -326,7 +380,6 @@ article {
   background: var(--oxblood);
 }
 
-/* Body */
 .prose p {
   font-family: 'Fraunces', serif;
   font-weight: 400;
@@ -359,7 +412,6 @@ article {
   color: var(--charcoal);
 }
 
-/* ========== SECTION MARKERS ========== */
 .chapter {
   margin: 96px 0 64px;
   text-align: center;
@@ -397,7 +449,6 @@ article {
   margin: 0 auto;
 }
 
-/* ========== PULL QUOTE ========== */
 .pullquote {
   margin: 80px -60px;
   padding: 0;
@@ -450,7 +501,6 @@ article {
   content: '— ';
 }
 
-/* ========== HUGE STAT BLOCK ========== */
 .stat-block {
   margin: 96px -60px;
   background: var(--charcoal);
@@ -584,7 +634,6 @@ article {
   z-index: 2;
 }
 
-/* ========== THE MORNING-AFTER TABLE ========== */
 .compound-table {
   margin: 80px -30px;
   background: var(--paper);
@@ -672,7 +721,6 @@ article {
   content: '↘ ';
 }
 
-/* ========== KEY-VALUE FACT STRIP ========== */
 .fact-strip {
   margin: 64px -30px;
   padding: 36px 36px;
@@ -711,7 +759,6 @@ article {
   font-style: normal;
 }
 
-/* ========== CLOSING ========== */
 .coda {
   margin: 120px -30px 0;
   padding: 80px 40px;
@@ -722,8 +769,7 @@ article {
   position: relative;
 }
 
-.coda::before,
-.coda::after {
+.coda::before {
   content: '';
   position: absolute;
   width: 8px;
@@ -731,10 +777,9 @@ article {
   background: var(--oxblood);
   border-radius: 50%;
   top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
 }
-
-.coda::before { left: 50%; transform: translateX(-50%); }
-.coda::after { display: none; }
 
 .coda-line {
   font-family: 'Fraunces', serif;
@@ -757,7 +802,6 @@ article {
   margin-top: 24px;
 }
 
-/* ========== FOOTER ========== */
 .essay-footer {
   max-width: 740px;
   margin: 0 auto;
@@ -816,9 +860,7 @@ article {
   font-weight: 500;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
-  nav { padding: 18px 22px; }
   article { padding: 60px 22px 60px; }
   .prose p { font-size: 18px; }
   .prose p:first-of-type::first-letter { font-size: 84px; }
@@ -842,11 +884,17 @@ article {
 <div class="progress" id="progress"></div>
 
 <nav>
-  <a href="/" class="nav-logo">MEWW</a>
-  <div class="nav-tag">Journal / <span>Essay 002</span></div>
+  <div class="nav-left">
+    <a href="/" class="nav-logo">MEWW</a>
+    <div class="nav-tag">Journal / <span>Essay 002</span></div>
+  </div>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <a href="/the-club-is-dead" class="active" aria-current="page">EN</a>
+    <span class="lang-divider"></span>
+    <a href="/le-club-est-mort" hreflang="fr">FR</a>
+  </div>
 </nav>
 
-<!-- ========== HERO ========== -->
 <section class="hero">
 
   <div class="hero-meta">
@@ -875,7 +923,6 @@ article {
 
 </section>
 
-<!-- ========== ARTICLE ========== -->
 <article>
 
   <div class="kicker">The Diagnosis</div>
@@ -897,7 +944,6 @@ article {
 
     <p>The numbers tell on themselves.</p>
 
-    <!-- HERO STAT BLOCK -->
     <div class="stat-block">
       <div class="stat-header">
         <div class="stat-eyebrow">Gen Z &nbsp;·&nbsp; The Receipts</div>
@@ -936,7 +982,6 @@ article {
 
     <p>At the top of the wealth curve, the signal got louder. The wealthy ones, the ones who used to fly to Ibiza for a weekend at Pacha, now fly to Ibiza for a Pilates retreat. They fly to Lisbon to run a half marathon, to Monaco for a race weekend, to Madrid for a padel tournament, to Augusta to walk eighteen holes.</p>
 
-    <!-- WEALTH STAT STRIP -->
     <div class="fact-strip">
       <div class="fact-label">Sports<br>Tourism</div>
       <div class="fact-value"><span class="num">$609B</span> today, projected to hit <span class="num">$1.3T</span> by 2032. <span class="num">56%</span> of 16–34 travelers cross borders for a sporting event. Average trip: <span class="num">$1,500+</span>.</div>
@@ -946,7 +991,6 @@ article {
 
     <p>So the entire energy gradient, from the kid filming themselves in a basement gym to the founder on a private jet to Mallorca, points in one direction. Away from the club. Toward formats that compound.</p>
 
-    <!-- MORNING-AFTER TABLE -->
     <div class="compound-table">
       <div class="compound-table-head">
         <div class="compound-table-eyebrow">The Morning-After Test</div>
@@ -976,7 +1020,6 @@ article {
 
     <p>The competition for the nightlife industry isn't another club across the street. The competition is a $40 gym membership, a free Saturday run group, a $200 weekend marathon trip when the budget allows, a Pilates retreat in Ibiza for the ones who can afford it, and the four and a half hours a day every customer is already spending building their own audience on a phone. The wallet didn't close. The attention didn't close. They moved. The operators in Toronto and Montreal and New York are still trying to figure out what playlist will bring them back.</p>
 
-    <!-- CHAPTER II -->
     <div class="chapter">
       <span class="chapter-num">ii.</span>
       <span class="chapter-label">The Demand</span>
@@ -987,7 +1030,6 @@ article {
 
     <p>The piece nobody is building is the bridge. The corridor between the phone and the room. Right now, Gen Z lives almost entirely on one side of that gap. Their friendships are on a phone. Their entertainment is on a phone. Their dating is on a phone. Their work is increasingly on a phone. The IRL gatherings exist, but they exist in isolation, disconnected from the online identity that consumes the other twenty hours of the day. The run club doesn't talk to the feed. The pottery class doesn't show up in the algorithm. The supper club ends and the night dies in a camera roll. Nothing carries.</p>
 
-    <!-- CHAPTER III -->
     <div class="chapter">
       <span class="chapter-num">iii.</span>
       <span class="chapter-label">The Build</span>
@@ -1021,7 +1063,6 @@ article {
 
   </div>
 
-  <!-- CODA -->
   <div class="coda">
     <div class="coda-line">The format is dead.<br>Long live the format.</div>
     <div class="coda-sig">— end of file —</div>
