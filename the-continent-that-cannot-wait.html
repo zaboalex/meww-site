@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Continent That Cannot Wait — Meww</title>
+<meta name="description" content="Why Palantir belongs in Africa. The demographic clock, institutional legibility, and the generation that will run the fix.">
+<meta property="og:title" content="The Continent That Cannot Wait: Why Palantir Belongs in Africa">
+<meta property="og:description" content="Africa's median age is nineteen. The difference between dividend and detonation is institutional capacity. An essay on the operating system the moment demands.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://meww.ac/the-continent-that-cannot-wait">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #060606;
+    --gold: #c9a84c;
+    --ink: #d8d4c8;
+    --ink-dim: #8f8b80;
+    --hairline: rgba(201, 168, 76, 0.25);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--ink);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Loader */
+  .loader {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    width: 0;
+    background: var(--gold);
+    z-index: 1000;
+    animation: load 1.1s ease-out forwards;
+  }
+  @keyframes load { to { width: 100%; opacity: 0; } }
+
+  /* Nav */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 32px;
+    background: linear-gradient(to bottom, rgba(6,6,6,0.92), rgba(6,6,6,0));
+    z-index: 100;
+  }
+  nav a.wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: 0.28em;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.4s;
+  }
+  nav a.wordmark:hover { color: var(--gold); }
+  nav .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+  }
+  .nav-right { display: flex; align-items: center; gap: 18px; }
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: none;
+    border: 1px solid var(--hairline);
+    padding: 5px 11px;
+    cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    transition: border-color 0.4s;
+  }
+  .lang-toggle:hover { border-color: rgba(201, 168, 76, 0.5); }
+  .lang-toggle .l-sep { opacity: 0.4; }
+  .lang-toggle .active { color: var(--gold); }
+  @media (max-width: 480px) { nav .tag { display: none; } }
+
+  /* Layout */
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero */
+  header {
+    padding: 150px 0 70px;
+    text-align: left;
+    position: relative;
+  }
+  .crumb {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    margin-bottom: 42px;
+  }
+  .crumb a { color: var(--ink-dim); text-decoration: none; transition: color 0.4s; }
+  .crumb a:hover { color: var(--gold); }
+
+  /* Signature: the median age */
+  .median {
+    display: flex;
+    align-items: baseline;
+    gap: 26px;
+    margin-bottom: 40px;
+  }
+  .median .nineteen {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(6rem, 18vw, 10rem);
+    line-height: 0.85;
+    color: var(--gold);
+    text-shadow: 0 0 60px rgba(201,168,76,0.25);
+    animation: breathe 5s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { text-shadow: 0 0 40px rgba(201,168,76,0.15); }
+    50% { text-shadow: 0 0 80px rgba(201,168,76,0.35); }
+  }
+  .median .legend {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    line-height: 2.1;
+  }
+  .median .legend em { color: var(--gold); font-style: normal; }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(2.1rem, 5.5vw, 3.2rem);
+    line-height: 1.15;
+    color: #f0ece0;
+    margin-bottom: 26px;
+  }
+  .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--ink-dim);
+    margin-bottom: 38px;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    padding-top: 26px;
+    border-top: 1px solid var(--hairline);
+  }
+  .meta span em { color: var(--gold); font-style: normal; }
+
+  /* Article */
+  article { padding: 30px 0 60px; }
+  article p {
+    margin-bottom: 1.6em;
+    font-size: 1.02rem;
+  }
+  article p:first-of-type::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.4em;
+    line-height: 0.8;
+    float: left;
+    padding-right: 12px;
+    padding-top: 6px;
+    color: var(--gold);
+  }
+  article h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.7rem;
+    color: #f0ece0;
+    margin: 2.6em 0 0.9em;
+    line-height: 1.25;
+  }
+  article h2::before {
+    content: '';
+    display: block;
+    width: 42px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 22px;
+    opacity: 0.6;
+  }
+  article strong { font-weight: 500; color: #f0ece0; }
+  article em { color: var(--ink); }
+  .coda {
+    margin-top: 3.5em;
+    padding-top: 2em;
+    border-top: 1px solid var(--hairline);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    color: var(--ink-dim);
+    line-height: 1.8;
+  }
+
+  /* Technical figures — Palantir-style linework */
+  .fig {
+    margin: 2.6em 0;
+    border: 1px solid rgba(216,212,200,0.14);
+    padding: 30px 26px 26px;
+    position: relative;
+    background: rgba(255,255,255,0.014);
+  }
+  .fig .fig-label {
+    position: absolute;
+    top: -9px;
+    left: 18px;
+    background: var(--black);
+    padding: 0 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .fig .fig-note {
+    margin-top: 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+  }
+
+  /* Spec cards (playbook) */
+  .spec {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid rgba(216,212,200,0.1);
+  }
+  .spec:first-of-type { border-top: none; padding-top: 4px; }
+  .spec .id {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    padding-top: 3px;
+  }
+  .spec h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    color: #f0ece0;
+    margin-bottom: 8px;
+  }
+  .spec p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--ink-dim);
+    margin: 0;
+  }
+
+  /* Stat triptych */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .stats .stat {
+    padding: 6px 20px;
+    border-left: 1px solid rgba(216,212,200,0.1);
+  }
+  .stats .stat:first-child { border-left: none; padding-left: 0; }
+  .stats .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    line-height: 1;
+    color: var(--gold);
+  }
+  .stats .cap {
+    margin-top: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    line-height: 1.9;
+  }
+  @media (max-width: 560px) {
+    .stats { grid-template-columns: 1fr; }
+    .stats .stat { border-left: none; padding: 14px 0; border-top: 1px solid rgba(216,212,200,0.1); }
+    .stats .stat:first-child { border-top: none; }
+  }
+
+  /* Single measure bar */
+  .measure { margin-top: 26px; }
+  .measure .m-head {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 10px;
+  }
+  .measure .m-head b { color: var(--gold); font-weight: 500; }
+  .measure .bar {
+    height: 5px;
+    background: rgba(216,212,200,0.08);
+    position: relative;
+    overflow: hidden;
+  }
+  .measure .bar i {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 0;
+    background: var(--gold);
+    transition: width 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s;
+  }
+  .in .measure .bar i, .measure.in .bar i { width: var(--w); }
+
+  /* Flow diagram */
+  .flow svg { width: 100%; height: auto; display: block; }
+  .flow text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    fill: rgba(216,212,200,0.8);
+  }
+  .flow text.t-gold { fill: var(--gold); }
+  .flow text.t-dim { fill: rgba(216,212,200,0.4); font-size: 8.5px; }
+  .flow rect {
+    fill: rgba(255,255,255,0.015);
+    stroke: rgba(216,212,200,0.28);
+    stroke-width: 1;
+  }
+  .flow rect.n-gold { stroke: rgba(201,168,76,0.55); }
+  .flow line, .flow path.wire {
+    stroke: rgba(201,168,76,0.45);
+    stroke-width: 1;
+    fill: none;
+    stroke-dasharray: 3 5;
+    animation: wire 26s linear infinite;
+  }
+  .flow path.solid-gold {
+    stroke: var(--gold);
+    stroke-width: 1.5;
+    fill: none;
+  }
+  .flow path.proj-gold {
+    stroke: var(--gold);
+    stroke-width: 1.5;
+    fill: none;
+    stroke-dasharray: 4 5;
+    animation: wire 26s linear infinite;
+  }
+  .flow path.solid-dim {
+    stroke: rgba(216,212,200,0.35);
+    stroke-width: 1;
+    fill: none;
+  }
+  .flow path.proj-dim {
+    stroke: rgba(216,212,200,0.35);
+    stroke-width: 1;
+    fill: none;
+    stroke-dasharray: 4 5;
+    animation: wire 26s linear infinite;
+  }
+  .flow line.grid {
+    stroke: rgba(216,212,200,0.08);
+    stroke-dasharray: none;
+    animation: none;
+  }
+  .flow circle.dot { fill: var(--gold); }
+  .flow circle.dot-dim { fill: rgba(216,212,200,0.4); }
+  @keyframes wire { to { stroke-dashoffset: -520; } }
+  @media (prefers-reduced-motion: reduce) {
+    .flow line, .flow path.wire { animation: none; }
+    .measure .bar i { transition: none; width: var(--w); }
+  }
+
+  /* Reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .median .nineteen { animation: none; }
+  }
+
+  /* Back link + footer */
+  .back {
+    display: inline-block;
+    margin: 30px 0 70px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.4s;
+  }
+  .back:hover { color: var(--gold); }
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 46px 32px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.64rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  footer a { color: var(--ink-dim); text-decoration: none; transition: color 0.4s; }
+  footer a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+<div class="loader"></div>
+
+<nav>
+  <a class="wordmark" href="/">MEWW</a>
+  <div class="nav-right">
+    <div class="tag">Essays / 2026</div>
+    <button class="lang-toggle" id="langToggle" type="button" aria-label="Toggle language, English or French">
+      <span class="l-en active">EN</span><span class="l-sep">/</span><span class="l-fr">FR</span>
+    </button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <div class="crumb"><a href="/">Meww</a> / Essays / The Continent That Cannot Wait</div>
+    <div class="median reveal">
+      <div class="nineteen">19</div>
+      <div class="legend">Median age — <em>Africa</em><br>Median age — Europe: 44<br>2050: one human in four</div>
+    </div>
+    <h1 class="reveal">The Continent That Cannot Wait</h1>
+    <p class="subtitle reveal">Why Palantir belongs in Africa.</p>
+    <div class="meta reveal">
+      <span>July 2026</span>
+      <span>~20 min</span>
+      <span><em>EN</em></span>
+      <span>Meww / Intelligence</span>
+    </div>
+  </header>
+
+  <article>
+    <p class="reveal">There is a number that should keep every serious person awake at night, and it is not a debt figure or an inflation rate. It is a median age. Africa's is nineteen. Europe's is forty-four. By 2050, one in four human beings on Earth will be African, and the continent will need to absorb hundreds of millions of young people into economies that, in their current institutional form, cannot hold them.</p>
+    <p class="reveal">This is either the greatest economic dividend in modern history or the largest destabilization event of the century. The difference between the two outcomes is not capital, not natural resources, not even education. Africa has all three in abundance or in reach. The difference is institutional capacity: the ability of states, hospitals, ports, banks, farms, and firms to see what they have, decide quickly, and execute at scale.</p>
+    <p class="reveal">That is not a problem you solve with another development report. It is a problem you solve with an operating system. And the uncomfortable truth for those who prefer their technology politics simple is that the company best positioned to provide it is Palantir.</p>
+
+    <h2 class="reveal">The real bottleneck is not money, it is legibility</h2>
+    <p class="reveal">Ask why a Lagos port clears containers in weeks when Rotterdam does it in hours. Ask why a ministry of health cannot tell you how many functional cold-chain units it has within two hundred kilometers of an outbreak. Ask why a mid-sized Nairobi manufacturer cannot get working capital at reasonable rates. The answer, underneath every layer of explanation, is the same: the data exists, but it exists in fragments. Paper records, incompatible databases, WhatsApp threads, spreadsheets on someone's laptop, systems that were donor-funded, half-deployed, and abandoned.</p>
+    <p class="reveal">Institutions that cannot see themselves cannot govern themselves. Economies that are illegible to their own participants cannot allocate capital, cannot collect fair taxes, cannot deliver medicine, cannot prove creditworthiness. The informal economy that employs the vast majority of African youth is not informal because people prefer it that way. It is informal because the formal system cannot see them, and what cannot be seen cannot be served.</p>
+    <p class="reveal">This is precisely the problem Palantir was built to solve. Not analytics, not dashboards, but ontology: taking the fragmented, contradictory, half-paper reality of a complex institution and building a single coherent operational picture that people can actually act on. Foundry did this for pharmaceutical supply chains during the pandemic, for national vaccine distribution in multiple countries, for airlines, energy grids, and manufacturers whose data landscapes were nearly as chaotic as anything in Lagos or Kinshasa. The technology is agnostic about geography. The need is not.</p>
+
+    <div class="fig flow reveal">
+      <div class="fig-label">Fig. 01 — From Fragments to Ontology</div>
+      <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: five fragmented data sources converge into an ontology, producing a single operational picture">
+        <path class="wire" d="M 148 36 C 230 36, 230 138, 300 142"/>
+        <path class="wire" d="M 148 98 C 230 98, 230 148, 300 152"/>
+        <path class="wire" d="M 148 160 L 300 160"/>
+        <path class="wire" d="M 148 222 C 230 222, 230 172, 300 168"/>
+        <path class="wire" d="M 148 284 C 230 284, 230 182, 300 178"/>
+        <path class="wire" d="M 430 160 L 520 160"/>
+        <text class="t-dim" x="18" y="14">FRAGMENTS</text>
+        <rect x="18" y="20" width="130" height="32"/>
+        <text x="30" y="40">PAPER RECORDS</text>
+        <rect x="18" y="82" width="130" height="32"/>
+        <text x="30" y="102">SPREADSHEETS</text>
+        <rect x="18" y="144" width="130" height="32"/>
+        <text x="30" y="164">WHATSAPP</text>
+        <rect x="18" y="206" width="130" height="32"/>
+        <text x="30" y="226">LEGACY DB</text>
+        <rect x="18" y="268" width="130" height="32"/>
+        <text x="30" y="288">DONOR SYSTEMS</text>
+        <rect class="n-gold" x="300" y="128" width="130" height="64"/>
+        <text class="t-gold" x="322" y="156">ONTOLOGY</text>
+        <text class="t-dim" x="322" y="172">ONE LIVE MODEL</text>
+        <rect x="520" y="128" width="162" height="64"/>
+        <text x="534" y="150">OPERATIONAL</text>
+        <text x="534" y="164">PICTURE</text>
+        <text class="t-dim" x="534" y="180">SEE · DECIDE · EXECUTE</text>
+      </svg>
+      <div class="fig-note">What cannot be seen cannot be served. Legibility is the multiplier.</div>
+    </div>
+
+    <h2 class="reveal">The demographic clock is the argument</h2>
+    <p class="reveal">Here is the mechanism that makes this urgent rather than merely interesting. Between now and 2050, Africa's working-age population will grow by roughly the size of the entire current workforce of China. Every year, tens of millions of young Africans reach working age. The formal economy, as currently constituted, creates a fraction of the jobs required.</p>
+
+    <div class="fig flow reveal">
+      <div class="fig-label">Fig. 02 — The Rising Generation</div>
+      <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart: Africa's working-age population rising from roughly 0.8 billion in 2020 toward 1.6 billion by 2050, while Europe's declines slightly toward 0.4 billion">
+        <line class="grid" x1="70" y1="70" x2="660" y2="70"/>
+        <line class="grid" x1="70" y1="136.7" x2="660" y2="136.7"/>
+        <line class="grid" x1="70" y1="203.3" x2="660" y2="203.3"/>
+        <line class="grid" x1="70" y1="270" x2="660" y2="270"/>
+        <text class="t-dim" x="18" y="74">1.5B</text>
+        <text class="t-dim" x="18" y="140">1.0B</text>
+        <text class="t-dim" x="18" y="207">0.5B</text>
+        <text class="t-dim" x="66" y="292">2020</text>
+        <text class="t-dim" x="252" y="292">2030</text>
+        <text class="t-dim" x="449" y="292">2040</text>
+        <text class="t-dim" x="632" y="292">2050</text>
+        <path class="solid-gold" d="M 70 163 L 168 150"/>
+        <path class="proj-gold" d="M 168 150 L 266 134 L 463 99 L 660 57"/>
+        <path class="solid-dim" d="M 70 210 L 168 210.5"/>
+        <path class="proj-dim" d="M 168 210.5 L 266 211.3 L 463 215.3 L 660 219.3"/>
+        <circle class="dot" cx="660" cy="57" r="3.5"/>
+        <circle class="dot-dim" cx="660" cy="219.3" r="2.5"/>
+        <text class="t-gold" x="560" y="44">AFRICA ~1.6B</text>
+        <text class="t-dim" x="558" y="238">EUROPE ~0.4B</text>
+        <text class="t-dim" x="280" y="118">+0.8B BY 2050</text>
+        <text class="t-dim" x="280" y="131">&asymp; CHINA'S ENTIRE CURRENT WORKFORCE</text>
+      </svg>
+      <div class="fig-note">Working-age population (15&ndash;64), UN projections. Dashed = projected. Every year, tens of millions reach working age.</div>
+    </div>
+
+    <p class="reveal">Youth who cannot enter the economy do not disappear. They migrate, at enormous human cost. They radicalize, in the Sahel and beyond, where insurgencies recruit directly from the pool of the economically invisible. Or they build in the informal sector, brilliantly and precariously, without credit, without contracts, without protection.</p>
+    <p class="reveal">The standard prescriptions, more education, more microfinance, more infrastructure, all fail against the same wall: the institutions that must deliver them are operationally blind. A vocational program cannot match graduates to demand it cannot measure. A development bank cannot lend against cash flows it cannot verify. A government cannot build roads efficiently when procurement leaks forty percent to fraud it cannot detect.</p>
+    <p class="reveal">Institutional legibility is the multiplier on every other intervention. It is the difference between a demographic dividend and a demographic detonation. And the window is not open forever. Institutions built now will either channel this generation into productive life or fail to, and the consequences of failure will not stay inside Africa's borders.</p>
+
+    <h2 class="reveal">What it looks like in practice</h2>
+    <p class="reveal">This is not abstract. The use cases are concrete and they compound.</p>
+    <p class="reveal">Agriculture employs the majority of Africans and operates almost entirely without operational data infrastructure. A Foundry-class deployment across a national agricultural value chain connects smallholder output, storage capacity, transport, weather, and market prices into one picture. Post-harvest losses, which run to a third of production in many countries, become visible and therefore fixable. Farmers with verified production histories become bankable. That is credit for millions who never had it, built on data rather than collateral.</p>
+    <p class="reveal">Health systems are the second front. African ministries of health run some of the most complex logistics problems on Earth with some of the thinnest tooling. Palantir already proved the model during the pandemic vaccine campaigns: real-time visibility into stock, cold chains, and delivery, at national scale, in weeks not years. Extend that to malaria programs, maternal health, and pandemic preparedness, and the return is measured in lives, which is also measured in workforce.</p>
+    <p class="reveal">Revenue is the third, and politically the most transformative. African states lose staggering sums to customs fraud, transfer mispricing, and procurement leakage. Every dollar recovered is a dollar that does not have to be borrowed at punitive rates or begged from donors. A state that can fund itself is a state that can negotiate for itself. Fiscal legibility is sovereignty, not a threat to it.</p>
+    <p class="reveal">And for African businesses themselves, the mid-market manufacturers, the pan-African banks, the logistics firms, the mining operators, the same platform that makes a European industrial competitive makes an African one competitive. The continent's champions should not be running on tooling a generation behind their global rivals while competing in the same markets.</p>
+
+    <h2 class="reveal">This is not a hypothesis. It has already started.</h2>
+    <p class="reveal">The strongest evidence for the thesis is that the early chapters are already written, and one of them is written in Kigali.</p>
+    <p class="reveal">Hence Technologies, a legal-tech AI startup operating out of Rwanda and London, builds its data products on Palantir Foundry through the Palantir for Builders program. What matters is not the individual company but the mechanism it proves: a lean African team shipping globally competitive AI software without first raising the millions historically required to build data infrastructure from scratch. The traditional barrier to entry for tech startups in emerging markets was never talent. It was infrastructure capital, the cost of cloud DevOps expertise, the years spent assembling pipelines and data lakes before a single customer saw a product. Builders on Foundry bypass that entire phase. The platform abstracts the plumbing, and the founders spend their scarce capital and scarcer time on the product itself, launching in weeks what used to take years.</p>
+    <p class="reveal">For a continent producing the world's largest and youngest cohort of founders, that abstraction is not a convenience. It is a multiplier on the entire entrepreneurial class. Every barrier removed between an ambitious twenty-three-year-old in Kigali, Accra, or Nairobi and a shippable product compounds across millions of attempts. The countries that industrialized fastest were the ones where the cost of trying fell hardest. Foundry drops the cost of trying in software to nearly the cost of ambition alone.</p>
+    <p class="reveal">And the channel into African enterprise is widening on the commercial side too. This week, at its Transformation World event in Heidelberg, SNP SE announced a strategic partnership with Palantir to accelerate secure SAP transformations, building AI-powered migration tools on Palantir's platforms for SNP's base of more than three thousand customers across eighty-plus countries. The significance for Africa is direct: SAP is the backbone of large enterprise across the continent, from South African mining houses to Nigerian banks to East African telecoms, and most of those installations are aging estates overdue for modernization. A partnership that industrializes secure SAP transformation, delivered through an established integrator network rather than requiring a Palantir forward-deployed team in every geography, is precisely the mechanism by which the platform reaches African enterprise at scale. The infrastructure for the thesis is being laid partner by partner, and the partners are arriving.</p>
+
+    <h2 class="reveal">The playbook: how it actually deploys</h2>
+    <p class="reveal">A thesis is only as good as its operating model, and the honest obstacles are known: Palantir's forward-deployed engineers are scarce and expensive, African networks carry foreign state-backed hardware, flagship contracts are priced for defense ministries, the data is analog, and the politics of automation are radioactive. Each obstacle has a specific answer, and together the answers form the emerging-market playbook.</p>
+
+    <div class="fig reveal">
+      <div class="fig-label">Fig. 03 — Emerging Market Playbook</div>
+      <div class="spec">
+        <div class="id">P-01</div>
+        <div>
+          <h3>Integrator network, not forward-deployed engineers</h3>
+          <p>Deployment shifts to regional boutique integrators and local builders on a train-the-trainer model. Client talent and local partners do the heavy lifting; Palantir becomes a high-margin software distributor rather than a resource-constrained consulting firm. The Hence pattern, generalized.</p>
+        </div>
+      </div>
+      <div class="spec">
+        <div class="id">P-02</div>
+        <div>
+          <h3>Zero-trust sovereign enclaves</h3>
+          <p>Foundry and AIP run inside cryptographically secure, isolated edge-cloud enclaves, sovereign data centers or hardened cloud regions, creating an air-gapped data fabric. Enterprise data is ingested and optimized locally without exposing the core platform to hardware-level vulnerabilities in the surrounding network.</p>
+        </div>
+      </div>
+      <div class="spec">
+        <div class="id">P-03</div>
+        <div>
+          <h3>Usage-based pricing, not defense-ministry contracts</h3>
+          <p>Flat multi-million annual contracts give way to utility-style compute and token tiers for startups and SMBs. Semantic routing and model distillation mean a founder pays only for the blocks consumed, and the subscription scales with the business, not ahead of it. A nineteen-year-old can afford the front door.</p>
+        </div>
+      </div>
+      <div class="spec">
+        <div class="id">P-04</div>
+        <div>
+          <h3>Automated ingestion of the analog world</h3>
+          <p>Where the data is paper, PDF, and legacy spreadsheet, agent meshes ingest and structure it into a clean, queryable semantic layer automatically. The digital twin of a ministry or a value chain assembles itself with near-zero human plumbing, which is the only way the data-maturity deficit ever gets crossed at continental scale.</p>
+        </div>
+      </div>
+      <div class="spec">
+        <div class="id">P-05</div>
+        <div>
+          <h3>The political pitch: tax-base multiplier, not efficiency</h3>
+          <p>Governments do not buy "operational efficiency," they buy growth. The pitch is GDP acceleration: optimized ports, digitized financial grids, and recovered revenue that expand the national economy by percentage points, funding the high-status operator roles the young workforce moves into.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fig flow reveal">
+      <div class="fig-label">Fig. 04 — Distribution Architecture</div>
+      <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flow diagram: core platform to regional integrators to builders and operators, branching into agriculture, health, revenue, and enterprise deployments">
+        <line x1="130" y1="150" x2="200" y2="150"/>
+        <line x1="330" y1="150" x2="392" y2="150"/>
+        <path class="wire" d="M 522 150 C 560 150, 560 45, 588 45"/>
+        <path class="wire" d="M 522 150 C 560 150, 560 115, 588 115"/>
+        <path class="wire" d="M 522 150 C 560 150, 560 185, 588 185"/>
+        <path class="wire" d="M 522 150 C 560 150, 560 255, 588 255"/>
+        <rect class="n-gold" x="18" y="122" width="112" height="56"/>
+        <text class="t-gold" x="34" y="146">CORE</text>
+        <text class="t-gold" x="34" y="160">PLATFORM</text>
+        <text class="t-dim" x="34" y="172">FOUNDRY · AIP</text>
+        <rect x="200" y="122" width="130" height="56"/>
+        <text x="214" y="146">REGIONAL</text>
+        <text x="214" y="160">INTEGRATORS</text>
+        <text class="t-dim" x="214" y="172">TRAIN-THE-TRAINER</text>
+        <rect x="392" y="122" width="130" height="56"/>
+        <text x="406" y="146">BUILDERS &amp;</text>
+        <text x="406" y="160">OPERATORS</text>
+        <text class="t-dim" x="406" y="172">GEN Z FOUNDERS</text>
+        <rect x="588" y="26" width="94" height="38"/>
+        <text x="600" y="49">AGRICULTURE</text>
+        <rect x="588" y="96" width="94" height="38"/>
+        <text x="600" y="119">HEALTH</text>
+        <rect x="588" y="166" width="94" height="38"/>
+        <text x="600" y="189">REVENUE</text>
+        <rect x="588" y="236" width="94" height="38"/>
+        <text x="600" y="259">ENTERPRISE</text>
+      </svg>
+      <div class="fig-note">One platform. Local hands. Sovereign enclaves at every deployment edge.</div>
+    </div>
+
+    <h2 class="reveal">The labor paradox, faced honestly</h2>
+    <p class="reveal">There is one tension the argument must meet head-on rather than sidestep, because any policymaker worth advising will raise it within five minutes. Builders on Foundry say openly that the platform reduces their need to hire junior software and DevOps engineers. For a continent whose defining challenge is mass job creation, a tool that thins out entry-level tech roles sounds like sabotage dressed as progress.</p>
+    <p class="reveal">The objection is real and the answer is not to deny it. The answer is to look at what those roles actually were and where they were already going. The junior positions Foundry compresses, manual data cleaning, boilerplate pipeline maintenance, basic script writing, are the exact roles being commoditized by AI globally, everywhere, regardless of what Africa decides. A strategy that trains millions of young Africans for the bottom rung of a ladder that is being sawed off worldwide is not a jobs strategy. It is a delayed unemployment strategy with a training budget.</p>
+    <p class="reveal">The honest move is to accept that the quantity game at the bottom of the stack is lost and play the leverage game instead. What platforms like Foundry and AIP change is the ratio of output to operator. One domain expert with an ontology underneath them does the analytical work that previously required a team, which means the valuable roles shift upward: system orchestrators who wire AI platforms into real operations, domain experts who encode how Nigerian agriculture or Kenyan credit actually works, strategic operators who own outcomes rather than tickets. These are better jobs, paid on leverage rather than headcount, and they are jobs that cannot be offshored away from Africa because their entire value is hyper-local knowledge.</p>
+    <p class="reveal">This is the same leapfrog the continent has executed before. Africa skipped landlines and built the world's most advanced mobile money ecosystem on the leap. It can skip the sweatshop era of software, the decade of grinding through commoditized junior roles that Asia's outsourcing giants are themselves now automating, and land directly on the orchestration layer. The demographic math still demands mass employment, and no software platform feeds a construction sector or a hospitality industry. But in the digital economy specifically, the choice is not between many low-leverage jobs and few high-leverage ones. The low-leverage jobs are evaporating on every continent simultaneously. The only open question is which workforces are standing on the platforms when the water rises.</p>
+
+    <h2 class="reveal">Meanwhile, the ladder is burning in the G7</h2>
+    <p class="reveal">If the labor paradox sounds like a risk unique to Africa, look north. In the service-heavy economies of the United States and Canada, the white-collar reckoning is not a forecast. It is underway, and it proves the point: the bottom rungs of the knowledge economy are being removed everywhere at once.</p>
+    <p class="reveal">The traditional white-collar career was an apprenticeship. A firm hired graduates for low-risk repetitive work, legal research, data cleaning, junior scripts, basic copy, and the ladder turned them into managers. AI now executes those foundational tasks at a fraction of the cost, and employers have responded by pulling the ladder up: early-career postings in Canadian business, marketing, and HR roles have fallen by nearly forty percent year over year, with policy, legal, and junior engineering roles contracting on similar lines. The junior roles that remain now demand senior judgment, AI-exposed positions ask for supervision and leadership skills at several times the rate of unexposed ones. Firms want seasoned professionals who can supervise intelligent systems, not trainees to invest in.</p>
+
+    <div class="fig reveal">
+      <div class="fig-label">Fig. 05 — The Hollowing Out</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="num">&minus;40%</div>
+          <div class="cap">Early-career postings, Canada<br>business / marketing / HR, YoY</div>
+        </div>
+        <div class="stat">
+          <div class="num">7&times;</div>
+          <div class="cap">Rise in senior-skill demand<br>on AI-exposed junior roles</div>
+        </div>
+        <div class="stat">
+          <div class="num">15M</div>
+          <div class="cap">US knowledge workers projected<br>to transition roles (Goldman Sachs)</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="m-head"><span>Projected workforce displaced over the adoption window</span><b>~9%</b></div>
+        <div class="bar"><i style="--w: 9%;"></i></div>
+      </div>
+      <div class="fig-note">Structural, not cyclical. Roles restructured out during downturns do not return.</div>
+    </div>
+
+    <p class="reveal">Downturns accelerate it. Canada's labor market historically adjusts slowly in recessions, employment protections and higher unionization preserve job matches through temporary slumps. That stability becomes a structural trap when a downturn collides with permanent labor-saving technology: firms use the squeeze to re-engineer workflows, and a role automated out during restructuring does not come back when the economy recovers. It has been absorbed by an agent mesh. Projections such as Goldman Sachs's put the eventual displacement near nine percent of the workforce over a decade of adoption, roughly fifteen million American knowledge workers pushed into new trajectories, with displaced white-collar workers spilling into trades, construction, and personal services and pressing wages down across those sectors. The optimists are right that technological revolutions create more jobs than they destroy in the long run. The bottleneck is velocity: displacement is moving faster than the institutions that retrain and reabsorb.</p>
+    <p class="reveal">The rule underneath is the same on every continent: any task built on pure information processing, without real-time physical presence, deep human empathy, or complex institutional judgment, is up for immediate technological arbitrage. Africa does not get to opt out of that rule. No one does. What Africa gets to choose, uniquely, is which side of the arbitrage its generation stands on, because it is the one continent whose knowledge-worker class is not yet built. The G7 must dismantle an old ladder while workers are standing on it. Africa can skip straight to building the platform floor.</p>
+
+    <h2 class="reveal">The last mile is cultural</h2>
+    <p class="reveal">Everything argued so far concerns capability. But capability does not win a generation. Status does. And here the thesis meets its final requirement, the one that enterprise software companies almost always fail: to capture the imagination of the world's fastest-growing youth population, Palantir cannot arrive in Kigali, Lagos, or Nairobi looking like a defense contractor in a gray suit. It has to arrive looking like the thing the most ambitious nineteen-year-old in the room already wants to be.</p>
+    <p class="reveal">There is precedent for this transformation. Arc'teryx turned survival gear into urban status. Formula 1 turned telemetry data into Netflix drama watched by millions who will never touch a race car. In both cases, hyper-functional machinery became aspirational not by dumbing itself down but by making mastery itself the aesthetic. Palantir's platforms are the most serious operational machinery in software. That seriousness is not the obstacle to youth adoption. Handled correctly, it is the entire appeal.</p>
+    <p class="reveal">What this looks like in practice is a deliberate inversion of the corporate playbook. Not hotel-ballroom developer conferences but anchored cultural events where a forty-eight-hour live build sits at the center of a festival, young teams competing to ship real local solutions, transit optimization, micro-fintech agents, on AIP while the event's own visuals run on live crowd and sentiment data processed through the platform itself, the ontology as stagecraft. Winners walk away with funding and builder status, not trophies. Not conference-swag t-shirts but a builders' line of technical gear whose signal is legible on the street: I do not write scripts, I orchestrate systems. Not certification PDFs but a gamified anti-university where mapping an ontology and configuring an agent mesh levels up like a character, free, fast, and terminating in a credential that lets a teenager walk into a regional bank or logistics firm and credibly propose to re-architect its operations.</p>
+    <p class="reveal">And the creator economy is the beachhead, because it is the economy African Gen Z already commands. The continent's streamers, musicians, and gaming leagues run sophisticated operations on duct-taped tooling. A platform that hands a young streamer a live operational dashboard, audience telemetry, donation flows, multi-platform distribution, agent meshes that clip, translate into local languages, and manage merch supply chains in real time, is not selling enterprise software. It is selling command. The pitch writes itself: everyone else is using AI to generate pictures and essays. This is the machinery that runs global logistics. Here are the keys.</p>
+    <p class="reveal">This is, incidentally, exactly the sermon Alex Karp has been preaching at the West for years. His entire thesis in The Technological Republic is that Silicon Valley squandered a generation of its finest engineering minds on photo filters, ad-click optimization, and food delivery apps while the hard problems of state and industry went unworked. The Valley took the smartest people alive and pointed them at the trivial. Africa has the chance to run the opposite play from day one: point its most talented generation directly at the consequential, agriculture, medicine, revenue, logistics, and skip the decade of trivia entirely. Karp's conviction culture translates too. This is a CEO who tells people who disagree with the company's mission, in his words, "bless you, don't work here." That is not arrogance, it is filtration, and it is precisely the energy a builder movement needs: not everyone, only the ones who want to work on things that matter.</p>
+    <p class="reveal">The strategic logic underneath the spectacle is cold and sound. Developer ecosystems are won a generation at a time, and they are won on identity before they are won on features. Microsoft won the nineties by making every teenager's first computer a Windows machine. Whoever makes the operational AI platform the default identity of Africa's builder generation owns the continent's enterprise stack for thirty years, because those nineteen-year-olds become the CTOs, the ministers, and the founders who choose the tooling for everything argued in this essay. The festivals and the techwear are not marketing expenses. They are the distribution channel for the entire thesis.</p>
+    <p class="reveal">And the loop closes where it started: with the countries themselves. Every young builder pulled into this ecosystem is a person now positioned inside the machinery of national efficiency rather than outside it, debugging a transit network instead of waiting for one, building the fraud model instead of losing savings to the fraud. The hackathon winner optimizing cold-chain logistics is not doing outreach for Palantir. She is recovering a percentage of her country's harvest. The streamer running an agent mesh is a small firm generating taxable revenue and hiring editors. Multiply that across a generation and the state's hardest problems, revenue leakage, service delivery, food security, youth unemployment itself, are being worked on by the exact population that used to embody them. That is the deepest version of the argument: the demographic pressure and the institutional weakness are the same problem, and this solves both with one motion by making the young the operators of the fix. And because the whole apparatus runs on status, competition, and play rather than obligation, it holds. Nobody burns out of a movement that feels like winning. A generation that is having fun rebuilding its own countries does not leave for Lisbon or London. It stays, because for the first time the most exciting room on Earth is the one it is already standing in.</p>
+
+    <div class="fig flow reveal">
+      <div class="fig-label">Fig. 06 — The Flywheel</div>
+      <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Circular loop diagram: builders gain platform mastery, deploy locally, national efficiency rises, status and capital return to create more builders">
+        <path class="wire" d="M 415 45 Q 605 45, 605 138"/>
+        <path class="wire" d="M 605 182 Q 605 282, 415 282"/>
+        <path class="wire" d="M 285 282 Q 95 282, 95 182"/>
+        <path class="wire" d="M 95 138 Q 95 45, 285 45"/>
+        <rect class="n-gold" x="285" y="16" width="130" height="44"/>
+        <text class="t-gold" x="305" y="36">BUILDERS</text>
+        <text class="t-dim" x="305" y="50">GEN Z · TRAINED</text>
+        <rect x="540" y="138" width="142" height="44"/>
+        <text x="554" y="158">DEPLOYMENT</text>
+        <text class="t-dim" x="554" y="172">CROPS · CARE · CASH</text>
+        <rect x="285" y="260" width="130" height="44"/>
+        <text x="299" y="280">EFFICIENCY</text>
+        <text class="t-dim" x="299" y="294">NATIONAL · FISCAL</text>
+        <rect x="18" y="138" width="142" height="44"/>
+        <text x="32" y="158">STATUS · CAPITAL</text>
+        <text class="t-dim" x="32" y="172">FUNDING · IDENTITY</text>
+        <text x="350" y="172" text-anchor="middle" style="font-family:'Cormorant Garamond',serif;font-size:48px;fill:#c9a84c;letter-spacing:0;">19</text>
+        <text class="t-dim" x="350" y="196" text-anchor="middle">ONE GENERATION, COMPOUNDING</text>
+      </svg>
+      <div class="fig-note">The demographic pressure and the institutional weakness are the same problem. One motion solves both.</div>
+    </div>
+
+    <h2 class="reveal">Why this benefits Palantir, and why that is fine</h2>
+    <p class="reveal">Skeptics will say Palantir goes where the money and power are, and Africa has historically been where neither concentrated. That is exactly why the argument works now. Palantir's growth story needs new terrain. The American and European government markets are deep but contested. The commercial market is growing but crowded. Africa offers the one thing mature markets cannot: a continent-scale institutional buildout happening in real time, with governments and firms that can leapfrog legacy systems entirely because they never installed them.</p>
+    <p class="reveal">The company that becomes the operational layer for African agriculture, health logistics, and public finance in the 2020s holds positions in 2050's largest labor market and one of its largest consumer markets. These are twenty-year relationships, the kind Palantir's model is built for. First movers in institutional software do not get displaced easily.</p>
+    <p class="reveal">Aligned incentives are not a defect. They are the only mechanism that has ever scaled. Aid programs end when budgets shift. Charity evaporates with news cycles. A commercial relationship where Palantir's revenue depends on African institutions actually functioning is more durable than any pledge, because the vendor is punished by its own failure. The people benefit through institutions that work. Palantir benefits through contracts that last. Neither benefit exists without the other.</p>
+
+    <h2 class="reveal">The honest conditions</h2>
+    <p class="reveal">None of this survives contact with reality unless the deployments are structured correctly. Data must remain sovereign, hosted under African jurisdiction, governed by African law, with contractual exit rights and full auditability. Local engineers must be trained on the platform from day one, not as a corporate social responsibility gesture but because deployments without local ownership die when the consultants fly home. And the use cases must start where the public benefit is undeniable: crops, medicine, revenue, not surveillance. Palantir's intelligence lineage means it will be watched, and it should welcome being watched, because the fastest way to lose the continent is to confirm the suspicion.</p>
+    <p class="reveal">Done right, this is not extraction with better branding. It is the sale of institutional capacity to the one continent that needs it most, at the one moment it matters most, priced in a currency both sides understand.</p>
+    <p class="reveal">The nineteen-year-olds are already here. The question is only whether the institutions meant to serve them will be able to see them.</p>
+
+    <h2 class="reveal">Answering the critics, all of them</h2>
+    <p class="reveal">The objections to this thesis deserve to be stated at full strength before they are taken apart, because they are the objections every serious African policymaker will raise, and they all collapse under the same weight: the weight of the alternative.</p>
+    <p class="reveal"><strong>The sovereignty objection.</strong> No foreign vendor, the argument goes, should sit at the heart of African state infrastructure. The continent has lived through dependency dressed as partnership before and paid for it in decades.</p>
+    <p class="reveal">But look at what actually sits at the heart of African state infrastructure today. Undersea cables owned by foreign consortia. Cloud regions owned by American hyperscalers. Telecom equipment from Huawei, financed by Chinese state banks, in networks across forty countries. Donor-built health databases that go dark when the grant cycle ends. The sovereignty objection is not a defense of sovereignty. It is a defense of the current arrangement, in which African data already flows through foreign hands, just invisibly, unaccountably, and without a contract anyone can enforce.</p>
+    <p class="reveal">Sovereignty is not the absence of foreign vendors. Switzerland runs on foreign software. Singapore, the most jealously sovereign small state on Earth, buys the best tools from wherever they exist and binds them in steel contracts. Sovereignty is the capacity to see your own country, tax your own economy, audit your own vendors, and walk away with your data intact. A Palantir deployment with African-jurisdiction hosting, contractual data ownership, full audit logs, and exit rights delivers more sovereignty than the status quo, not less, because for the first time the dependency is written down, priced, and terminable. The colonial arrangements were never terminable. That is the entire difference.</p>
+    <p class="reveal">And ask the harder question: who is the alternative vendor? The realistic counterparty for African digital infrastructure at scale is not a Geneva NGO. It is Beijing, offering integrated packages of surveillance-ready smart city systems with opaque financing and no exit clause. Against that field, a US-listed company answerable to SEC disclosure, Western courts, congressional scrutiny, and a stock price that punishes scandal is not the dangerous option. It is the accountable one.</p>
+    <p class="reveal"><strong>The lineage objection.</strong> Palantir built for intelligence agencies and immigration enforcement, so its tools must concentrate state power in ways young democracies cannot survive.</p>
+    <p class="reveal">This argument mistakes provenance for destiny. GPS was built by the Pentagon; it now guides ambulances in Kampala. The internet was a defense project; it carries M-Pesa. The relevant question about any powerful tool is never where it was born but how it is governed at the point of use, and here Palantir's lineage is not the liability. It is the qualification. A company forged inside the most heavily overseen institutions on Earth, built to withstand audits, warrants, and inspector-generals, arrives with governance machinery, granular access controls, immutable logs, purpose limitation, that consumer-grade software vendors have never had to build. The tools that concentrate power dangerously are the ones with no logs, no access tiers, and no audit trail. Africa's ministries are full of those today, in the form of spreadsheets and shared passwords.</p>
+    <p class="reveal">There is a deeper error in this objection: the assumption that a weak state is a safe state. It is not. In the Sahel, the states that cannot see their own territory are the ones losing it to men with Kalashnikovs and satellite phones. The young democracies that failed did not fail from administrative competence. They failed from blindness, emptiness of the treasury, and the vacuum that armed alternatives rushed to fill. A state that can detect procurement fraud, deliver vaccines, and pay its teachers on time is not a proto-tyranny. It is the only kind of state that survives long enough to remain a democracy. Capacity is not the enemy of liberty. Collapse is.</p>
+    <p class="reveal"><strong>The build-it-locally objection.</strong> The money should fund African software capacity directly, local engineers, local clouds, open-source public infrastructure on the Indian model, owned by no vendor at all.</p>
+    <p class="reveal">This is the most seductive objection and the most expensive one, because its cost is denominated in time, the one currency the demographic clock does not refund. India's digital stack is magnificent and took two decades, a deep pre-existing engineering base, and a state with continuous administrative capacity to build. Africa's nineteen-year-olds do not have two decades. The choice framed as "Palantir or local capacity" is false. The real choice is "institutional capacity now, with local engineers trained inside world-class deployments" or "institutional blindness for twenty more years while the perfect sovereign stack is debated at conferences."</p>
+    <p class="reveal">Nobody says a hospital must forge its own scalpels to be sovereign over its surgeries. The leapfrog thesis that built African mobile money did not wait for an indigenous handset industry. It took the best available platform and built African genius on top of it. The same logic applies here, with one addition that turns the objection into the strategy: every deployment trains African engineers on the most advanced operational software on Earth. Those engineers do not evaporate. They become the founders of the local capacity the critics want, the way Andela's alumni seeded a startup ecosystem. Palantir is not the substitute for African software sovereignty. Deployed correctly, it is the university for it.</p>
+    <p class="reveal"><strong>The monster framing itself.</strong> Underneath all three objections runs a single aesthetic conviction: that Palantir is simply a sinister company, and sinister companies should be kept away from vulnerable places.</p>
+    <p class="reveal">It is worth noting that Palantir itself has never once flinched from this framing, which is itself informative. Karp goes on television and says things no other software CEO would survive saying, that the company's tools scare its clients' enemies and sometimes kill them, that he enjoys watching the short sellers get burned. A company that hides nothing about what it is presents a very different risk profile than one that launders its nature through marketing. African negotiators sitting across from Palantir know exactly what they are buying and exactly what the company believes. Compare that to vendors who arrive wrapped in development-speak and partnership language while the real terms live in annexes nobody translates. Radical candor about power is not the red flag. The soothing pitch is.</p>
+    <p class="reveal">Vulnerable places do not have the luxury of choosing partners by aesthetics. They choose by outcomes. The monster framing was manufactured in the comment sections of countries whose institutions already work, where the marginal fear is surveillance because scarcity was solved generations ago. Africa's marginal fear is not being watched. It is being wasted: harvests rotting, medicine expiring, revenue leaking, and a generation of extraordinary young people locked outside economies that cannot see them. Judged against that reality, the company offering verifiable, contract-bound, auditable institutional capacity is not the monster in the story. The monster is the status quo, and it is already eating.</p>
+    <p class="reveal">None of this means signing blind. Every safeguard named earlier, African-jurisdiction data, exit rights, audit access, local engineering mandates, surveillance-free scoping, belongs in the contract, in enforceable language, and African negotiators should extract every one of them. Strong partners deserve strong contracts. That is not suspicion. That is how friends who intend to stay for twenty years treat each other.</p>
+    <p class="reveal">The critics are right that Africa has been burned by partnerships before. They are wrong about the lesson. The lesson of every burned partnership was never "take no partners." It was "take partners whose incentives you can verify and whose failures you can punish." By that standard, honestly applied, Palantir is not the threat at the door. It is the ally the moment demands, arriving at the exact hour the clock runs loudest.</p>
+
+    <p class="coda reveal">The debate is live and should stay live: sovereignty scholars, digital-rights advocates, and proponents of open public infrastructure continue to press these objections in good faith, and any real deployment will be negotiated against them, clause by clause. That is as it should be. The argument above is that the objections are answerable, not that they should go unasked.</p>
+
+    <a class="back reveal" href="/">&larr; Return to Meww</a>
+  </article>
+</div>
+
+<footer>
+  <span><a href="https://x.com/MewACinc" target="_blank" rel="noopener">X</a> &nbsp;/&nbsp; <a href="https://instagram.com/mewwainc" target="_blank" rel="noopener">Instagram</a> &nbsp;/&nbsp; <a href="mailto:meeww8@gmail.com">Email</a></span>
+  <span>Montreal, Canada &nbsp;&middot;&nbsp; Est. 2024 &nbsp;&middot;&nbsp; Meww Agency &amp; Consultancy</span>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script>
+/* Bilingual toggle. Swaps text content on the existing DOM nodes only —
+   SVG geometry, animations, and reveal classes are never touched. */
+(function () {
+  var htmlEl = document.documentElement;
+  var toArr = function (nl) { return Array.prototype.slice.call(nl); };
+  var mapTxt = function (nl) { return toArr(nl).map(function (n) { return n.textContent; }); };
+  var mapHtml = function (nl) { return toArr(nl).map(function (n) { return n.innerHTML; }); };
+
+  var navTag = document.querySelector('nav .tag');
+  var crumb = document.querySelector('.crumb');
+  var legend = document.querySelector('.median .legend');
+  var h1El = document.querySelector('header h1');
+  var subtitleEl = document.querySelector('.subtitle');
+  var metaSpans = toArr(document.querySelectorAll('.meta span'));
+  var backEl = document.querySelector('.back');
+  var pEls = toArr(document.querySelectorAll('article > p'));
+  var hEls = toArr(document.querySelectorAll('article > h2'));
+  var figs = toArr(document.querySelectorAll('article .fig'));
+
+  // Capture the English source of truth straight from the DOM.
+  var EN = {
+    navTag: navTag.textContent,
+    crumb: crumb.innerHTML,
+    legend: legend.innerHTML,
+    h1: h1El.textContent,
+    subtitle: subtitleEl.textContent,
+    metaSpan0: metaSpans[0].textContent,
+    metaSpan2: metaSpans[2].innerHTML,
+    back: backEl.innerHTML,
+    p: mapHtml(pEls),
+    h: mapTxt(hEls),
+    figLabels: [], figNotes: [], svg: [], specH3: [], specP: [], caps: [], mhead: []
+  };
+  figs.forEach(function (fig) {
+    var l = fig.querySelector('.fig-label');
+    var n = fig.querySelector('.fig-note');
+    var t = fig.querySelectorAll('svg text');
+    var h3 = fig.querySelectorAll('.spec h3');
+    var sp = fig.querySelectorAll('.spec p');
+    var cp = fig.querySelectorAll('.stat .cap');
+    var mh = fig.querySelector('.m-head span');
+    EN.figLabels.push(l ? l.textContent : null);
+    EN.figNotes.push(n ? n.textContent : null);
+    EN.svg.push(t.length ? mapTxt(t) : null);
+    EN.specH3.push(h3.length ? mapTxt(h3) : null);
+    EN.specP.push(sp.length ? mapTxt(sp) : null);
+    EN.caps.push(cp.length ? mapHtml(cp) : null);
+    EN.mhead.push(mh ? mh.textContent : null);
+  });
+
+  var FR = {
+    navTag: 'Essais / 2026',
+    crumb: '<a href="/">Meww</a> / Essais / Le Continent Qui Ne Peut Attendre',
+    legend: 'Âge médian — <em>Afrique</em><br>Âge médian — Europe : 44<br>2050 : un humain sur quatre',
+    h1: 'Le Continent Qui Ne Peut Attendre',
+    subtitle: 'Pourquoi Palantir a sa place en Afrique.',
+    metaSpan0: 'Juillet 2026',
+    metaSpan2: '<em>FR</em>',
+    back: '&larr; Retour à Meww',
+    p: [
+      `Il existe un chiffre qui devrait tenir éveillée toute personne sérieuse, et ce n'est ni un niveau d'endettement ni un taux d'inflation. C'est un âge médian. Celui de l'Afrique est de dix-neuf ans. Celui de l'Europe, quarante-quatre. D'ici 2050, un être humain sur quatre sur Terre sera africain, et le continent devra absorber des centaines de millions de jeunes dans des économies qui, dans leur forme institutionnelle actuelle, ne peuvent les contenir.`,
+      `C'est soit le plus grand dividende économique de l'histoire moderne, soit le plus vaste événement de déstabilisation du siècle. La différence entre ces deux issues n'est pas le capital, ni les ressources naturelles, ni même l'éducation. L'Afrique possède les trois en abondance ou à portée de main. La différence, c'est la capacité institutionnelle : l'aptitude des États, des hôpitaux, des ports, des banques, des fermes et des entreprises à voir ce qu'ils ont, à décider vite et à exécuter à grande échelle.`,
+      `Ce n'est pas un problème que l'on règle avec un énième rapport sur le développement. C'est un problème que l'on règle avec un système d'exploitation. Et la vérité inconfortable, pour ceux qui préfèrent une politique technologique simple, c'est que l'entreprise la mieux placée pour le fournir est Palantir.`,
+      `Demandez pourquoi un port de Lagos dédouane des conteneurs en semaines quand Rotterdam le fait en heures. Demandez pourquoi un ministère de la Santé est incapable de dire combien d'unités de chaîne du froid fonctionnelles se trouvent dans un rayon de deux cents kilomètres d'une épidémie. Demandez pourquoi un industriel de taille moyenne à Nairobi n'obtient pas de fonds de roulement à des taux raisonnables. La réponse, sous chaque couche d'explication, est la même : les données existent, mais elles existent en fragments. Registres papier, bases de données incompatibles, fils WhatsApp, tableurs sur l'ordinateur de quelqu'un, systèmes financés par des bailleurs, à moitié déployés puis abandonnés.`,
+      `Les institutions qui ne peuvent se voir elles-mêmes ne peuvent se gouverner elles-mêmes. Les économies illisibles à leurs propres participants ne peuvent allouer le capital, ne peuvent prélever l'impôt équitablement, ne peuvent livrer les médicaments, ne peuvent prouver leur solvabilité. L'économie informelle qui emploie la grande majorité de la jeunesse africaine n'est pas informelle par préférence. Elle est informelle parce que le système formel ne peut la voir, et ce qui ne peut être vu ne peut être servi.`,
+      `C'est précisément le problème que Palantir a été conçu pour résoudre. Non pas l'analytique, non pas les tableaux de bord, mais l'ontologie : prendre la réalité fragmentée, contradictoire, à moitié papier d'une institution complexe et en bâtir une image opérationnelle unique et cohérente sur laquelle les gens peuvent réellement agir. Foundry l'a fait pour les chaînes d'approvisionnement pharmaceutiques pendant la pandémie, pour la distribution nationale de vaccins dans plusieurs pays, pour des compagnies aériennes, des réseaux électriques et des industriels dont les paysages de données étaient presque aussi chaotiques que tout ce que l'on trouve à Lagos ou à Kinshasa. La technologie est indifférente à la géographie. Le besoin, non.`,
+      `Voici le mécanisme qui rend cela urgent plutôt que simplement intéressant. D'ici 2050, la population en âge de travailler de l'Afrique augmentera d'environ la taille de l'ensemble de la main-d'œuvre actuelle de la Chine. Chaque année, des dizaines de millions de jeunes Africains atteignent l'âge de travailler. L'économie formelle, telle qu'elle est constituée aujourd'hui, crée une fraction des emplois nécessaires.`,
+      `Les jeunes qui ne peuvent entrer dans l'économie ne disparaissent pas. Ils migrent, à un coût humain énorme. Ils se radicalisent, au Sahel et au-delà, où les insurrections recrutent directement dans le vivier des économiquement invisibles. Ou ils bâtissent dans le secteur informel, brillamment et précairement, sans crédit, sans contrats, sans protection.`,
+      `Les prescriptions habituelles, plus d'éducation, plus de microfinance, plus d'infrastructures, se heurtent toutes au même mur : les institutions censées les livrer sont opérationnellement aveugles. Un programme de formation professionnelle ne peut apparier les diplômés à une demande qu'il ne peut mesurer. Une banque de développement ne peut prêter contre des flux de trésorerie qu'elle ne peut vérifier. Un gouvernement ne peut construire des routes efficacement quand les marchés publics perdent quarante pour cent à une fraude qu'il ne peut détecter.`,
+      `La lisibilité institutionnelle est le multiplicateur de toute autre intervention. C'est la différence entre un dividende démographique et une détonation démographique. Et la fenêtre n'est pas ouverte pour toujours. Les institutions bâties aujourd'hui canaliseront cette génération vers une vie productive, ou échoueront à le faire, et les conséquences de l'échec ne resteront pas à l'intérieur des frontières de l'Afrique.`,
+      `Rien d'abstrait ici. Les cas d'usage sont concrets et ils se composent.`,
+      `L'agriculture emploie la majorité des Africains et fonctionne presque entièrement sans infrastructure de données opérationnelles. Un déploiement de type Foundry sur une chaîne de valeur agricole nationale relie la production des petits exploitants, les capacités de stockage, le transport, la météo et les prix du marché en une seule image. Les pertes post-récolte, qui atteignent un tiers de la production dans de nombreux pays, deviennent visibles et donc corrigibles. Les agriculteurs disposant d'un historique de production vérifié deviennent bancables. C'est du crédit pour des millions de gens qui n'en ont jamais eu, bâti sur des données plutôt que sur des garanties.`,
+      `Les systèmes de santé sont le deuxième front. Les ministères africains de la Santé gèrent certains des problèmes logistiques les plus complexes de la planète avec certains des outils les plus rudimentaires. Palantir a déjà fait ses preuves durant les campagnes de vaccination de la pandémie : visibilité en temps réel sur les stocks, les chaînes du froid et la livraison, à l'échelle nationale, en semaines et non en années. Étendez cela aux programmes contre le paludisme, à la santé maternelle et à la préparation aux pandémies, et le rendement se mesure en vies, ce qui se mesure aussi en main-d'œuvre.`,
+      `Les recettes sont le troisième, et politiquement le plus transformateur. Les États africains perdent des sommes vertigineuses au profit de la fraude douanière, des prix de transfert et des fuites dans les marchés publics. Chaque dollar récupéré est un dollar qu'il n'est pas nécessaire d'emprunter à des taux punitifs ni de quémander à des bailleurs. Un État qui peut se financer lui-même est un État qui peut négocier pour lui-même. La lisibilité fiscale est la souveraineté, non une menace pour elle.`,
+      `Et pour les entreprises africaines elles-mêmes, les industriels du marché intermédiaire, les banques panafricaines, les entreprises de logistique, les exploitants miniers, la même plateforme qui rend un industriel européen compétitif rend un industriel africain compétitif. Les champions du continent ne devraient pas fonctionner avec des outils d'une génération en retard sur leurs rivaux mondiaux tout en se disputant les mêmes marchés.`,
+      `La meilleure preuve de la thèse, c'est que les premiers chapitres sont déjà écrits, et l'un d'eux s'écrit à Kigali.`,
+      `Hence Technologies, une startup d'IA juridique opérant depuis le Rwanda et Londres, bâtit ses produits de données sur Palantir Foundry via le programme Palantir for Builders. Ce qui importe, ce n'est pas l'entreprise en soi, mais le mécanisme qu'elle démontre : une équipe africaine légère livrant un logiciel d'IA compétitif à l'échelle mondiale sans avoir d'abord à lever les millions historiquement requis pour bâtir une infrastructure de données à partir de zéro. La barrière à l'entrée traditionnelle pour les startups technologiques des marchés émergents n'a jamais été le talent. C'était le capital d'infrastructure, le coût de l'expertise DevOps cloud, les années passées à assembler des pipelines et des lacs de données avant qu'un seul client ne voie un produit. Les Builders sur Foundry contournent entièrement cette phase. La plateforme fait abstraction de la plomberie, et les fondateurs consacrent leur capital rare et leur temps plus rare encore au produit lui-même, lançant en semaines ce qui prenait autrefois des années.`,
+      `Pour un continent produisant la cohorte de fondateurs la plus vaste et la plus jeune au monde, cette abstraction n'est pas une commodité. C'est un multiplicateur sur toute la classe entrepreneuriale. Chaque barrière retirée entre un ambitieux de vingt-trois ans à Kigali, Accra ou Nairobi et un produit livrable se compose sur des millions de tentatives. Les pays qui se sont industrialisés le plus vite sont ceux où le coût d'essayer a le plus chuté. Foundry ramène le coût d'essayer dans le logiciel à presque le seul coût de l'ambition.`,
+      `Et le canal vers l'entreprise africaine s'élargit aussi du côté commercial. Cette semaine, lors de son événement Transformation World à Heidelberg, SNP SE a annoncé un partenariat stratégique avec Palantir pour accélérer les transformations SAP sécurisées, en bâtissant des outils de migration dopés à l'IA sur les plateformes de Palantir pour la base de plus de trois mille clients de SNP répartis dans plus de quatre-vingts pays. La portée pour l'Afrique est directe : SAP est l'épine dorsale des grandes entreprises du continent, des maisons minières sud-africaines aux banques nigérianes en passant par les télécoms d'Afrique de l'Est, et la plupart de ces installations sont des parcs vieillissants en retard de modernisation. Un partenariat qui industrialise la transformation SAP sécurisée, livrée via un réseau d'intégrateurs établi plutôt qu'en exigeant une équipe Palantir déployée sur place dans chaque géographie, est précisément le mécanisme par lequel la plateforme atteint l'entreprise africaine à grande échelle. L'infrastructure de la thèse se met en place partenaire par partenaire, et les partenaires arrivent.`,
+      `Une thèse ne vaut que par son modèle opérationnel, et les obstacles, honnêtement, sont connus : les ingénieurs déployés en première ligne de Palantir sont rares et coûteux, les réseaux africains transportent du matériel adossé à des États étrangers, les contrats phares sont tarifés pour des ministères de la Défense, les données sont analogiques, et la politique de l'automatisation est radioactive. Chaque obstacle a une réponse précise, et ensemble ces réponses forment le playbook des marchés émergents.`,
+      `Il y a une tension que l'argument doit affronter de face plutôt que contourner, car tout décideur digne d'être conseillé la soulèvera en moins de cinq minutes. Les Builders sur Foundry disent ouvertement que la plateforme réduit leur besoin d'embaucher des ingénieurs logiciels et DevOps juniors. Pour un continent dont le défi déterminant est la création massive d'emplois, un outil qui raréfie les postes techniques d'entrée de gamme ressemble à un sabotage déguisé en progrès.`,
+      `L'objection est réelle et la réponse n'est pas de la nier. La réponse est de regarder ce qu'étaient réellement ces postes et où ils allaient déjà. Les postes juniors que Foundry comprime, le nettoyage manuel de données, la maintenance de pipelines standardisés, l'écriture de scripts basiques, sont exactement les rôles banalisés par l'IA partout dans le monde, quoi que l'Afrique décide. Une stratégie qui forme des millions de jeunes Africains au barreau inférieur d'une échelle que l'on scie à l'échelle mondiale n'est pas une stratégie d'emploi. C'est une stratégie de chômage différé avec un budget de formation.`,
+      `Le geste honnête est d'accepter que le jeu de la quantité au bas de la pile est perdu et de jouer plutôt le jeu du levier. Ce que des plateformes comme Foundry et AIP changent, c'est le rapport entre production et opérateur. Un expert de domaine avec une ontologie sous lui accomplit le travail analytique qui exigeait auparavant une équipe, ce qui signifie que les rôles de valeur montent : orchestrateurs de systèmes qui branchent les plateformes d'IA sur des opérations réelles, experts de domaine qui encodent le fonctionnement réel de l'agriculture nigériane ou du crédit kényan, opérateurs stratégiques qui possèdent des résultats plutôt que des tickets. Ce sont de meilleurs emplois, payés au levier plutôt qu'au nombre de têtes, et ce sont des emplois qui ne peuvent être délocalisés hors d'Afrique parce que toute leur valeur est une connaissance hyperlocale.`,
+      `C'est le même saut de grenouille que le continent a déjà exécuté. L'Afrique a sauté par-dessus les lignes fixes et a bâti sur ce bond l'écosystème d'argent mobile le plus avancé au monde. Elle peut sauter par-dessus l'ère du sweatshop du logiciel, la décennie à s'user dans des rôles juniors banalisés que les géants asiatiques de l'externalisation automatisent eux-mêmes désormais, et atterrir directement sur la couche d'orchestration. La logique démographique exige toujours l'emploi de masse, et aucune plateforme logicielle ne nourrit un secteur de la construction ou une industrie hôtelière. Mais dans l'économie numérique précisément, le choix n'est pas entre beaucoup d'emplois à faible levier et quelques-uns à fort levier. Les emplois à faible levier s'évaporent sur tous les continents simultanément. La seule question ouverte est de savoir quelles mains-d'œuvre se tiendront sur les plateformes quand l'eau montera.`,
+      `Si le paradoxe de l'emploi semble un risque propre à l'Afrique, regardez vers le nord. Dans les économies de services des États-Unis et du Canada, le règlement de comptes des cols blancs n'est pas une prévision. Il est en cours, et il prouve le propos : les barreaux inférieurs de l'économie du savoir sont retirés partout à la fois.`,
+      `La carrière traditionnelle de col blanc était un apprentissage. Une firme embauchait des diplômés pour un travail répétitif à faible risque, recherche juridique, nettoyage de données, scripts juniors, rédaction de base, et l'échelle en faisait des cadres. L'IA exécute désormais ces tâches fondamentales à une fraction du coût, et les employeurs ont réagi en retirant l'échelle : les offres en début de carrière dans les rôles canadiens en affaires, marketing et RH ont chuté de près de quarante pour cent d'une année sur l'autre, les rôles en politique, en droit et en ingénierie junior se contractant sur des lignes semblables. Les postes juniors qui subsistent exigent désormais un jugement de senior, les postes exposés à l'IA réclament des compétences de supervision et de leadership à plusieurs fois le taux des postes non exposés. Les firmes veulent des professionnels aguerris capables de superviser des systèmes intelligents, non des stagiaires dans lesquels investir.`,
+      `Les ralentissements l'accélèrent. Le marché du travail canadien s'ajuste historiquement lentement en récession, les protections de l'emploi et une syndicalisation plus élevée préservant les appariements d'emploi à travers les creux temporaires. Cette stabilité devient un piège structurel quand un ralentissement percute une technologie permanente d'économie de main-d'œuvre : les firmes profitent de la contrainte pour réingénierer les flux de travail, et un rôle automatisé lors d'une restructuration ne revient pas quand l'économie se redresse. Il a été absorbé par un maillage d'agents. Des projections comme celle de Goldman Sachs situent le déplacement éventuel à près de neuf pour cent de la main-d'œuvre sur une décennie d'adoption, soit environ quinze millions de travailleurs du savoir américains poussés vers de nouvelles trajectoires, les cols blancs déplacés se déversant dans les métiers manuels, la construction et les services à la personne et tirant les salaires vers le bas dans ces secteurs. Les optimistes ont raison de dire que les révolutions technologiques créent plus d'emplois qu'elles n'en détruisent à long terme. Le goulot d'étranglement, c'est la vélocité : le déplacement va plus vite que les institutions qui reforment et réabsorbent.`,
+      `La règle sous-jacente est la même sur tous les continents : toute tâche bâtie sur le pur traitement de l'information, sans présence physique en temps réel, sans empathie humaine profonde ni jugement institutionnel complexe, est ouverte à un arbitrage technologique immédiat. L'Afrique ne peut se soustraire à cette règle. Personne ne le peut. Ce que l'Afrique peut choisir, de façon unique, c'est de quel côté de l'arbitrage sa génération se tient, car c'est le seul continent dont la classe de travailleurs du savoir n'est pas encore bâtie. Le G7 doit démonter une vieille échelle pendant que des travailleurs s'y tiennent. L'Afrique peut sauter directement à la construction du plancher de la plateforme.`,
+      `Tout ce qui a été avancé jusqu'ici concerne la capacité. Mais la capacité ne conquiert pas une génération. Le statut, si. Et c'est ici que la thèse rencontre son exigence finale, celle que les éditeurs de logiciels d'entreprise ratent presque toujours : pour capter l'imagination de la population jeune à la croissance la plus rapide au monde, Palantir ne peut débarquer à Kigali, Lagos ou Nairobi avec l'allure d'un sous-traitant de la défense en costume gris. Il doit arriver avec l'allure de ce que le jeune de dix-neuf ans le plus ambitieux de la pièce veut déjà être.`,
+      `Cette transformation a des précédents. Arc'teryx a fait d'un équipement de survie un statut urbain. La Formule 1 a fait de données de télémétrie un drame Netflix regardé par des millions de gens qui ne toucheront jamais une voiture de course. Dans les deux cas, une machinerie hyperfonctionnelle est devenue aspirationnelle non en se simplifiant à l'excès mais en faisant de la maîtrise elle-même l'esthétique. Les plateformes de Palantir sont la machinerie opérationnelle la plus sérieuse du logiciel. Ce sérieux n'est pas l'obstacle à l'adoption par les jeunes. Bien manié, il est tout l'attrait.`,
+      `Concrètement, cela ressemble à une inversion délibérée du playbook corporatif. Non pas des conférences de développeurs en salle de bal d'hôtel mais des événements culturels ancrés où un build en direct de quarante-huit heures trône au centre d'un festival, de jeunes équipes rivalisant pour livrer de vraies solutions locales, optimisation des transports, agents de micro-fintech, sur AIP tandis que les visuels de l'événement lui-même tournent sur des données de foule et de sentiment en direct traitées par la plateforme elle-même, l'ontologie comme mise en scène. Les gagnants repartent avec du financement et un statut de Builder, non des trophées. Non pas des t-shirts de goodies de conférence mais une ligne de vêtements techniques dont le signal est lisible dans la rue : je n'écris pas des scripts, j'orchestre des systèmes. Non pas des PDF de certification mais une anti-université gamifiée où cartographier une ontologie et configurer un maillage d'agents fait monter de niveau comme un personnage, gratuite, rapide, aboutissant à un titre qui permet à un adolescent d'entrer dans une banque régionale ou une firme de logistique et de proposer de façon crédible de réarchitecturer ses opérations.`,
+      `Et l'économie des créateurs est la tête de pont, parce que c'est l'économie que la Gen Z africaine commande déjà. Les streamers, musiciens et ligues de jeu du continent mènent des opérations sophistiquées avec des outils bricolés. Une plateforme qui remet à un jeune streamer un tableau de bord opérationnel en direct, télémétrie d'audience, flux de dons, distribution multiplateforme, maillages d'agents qui découpent des clips, traduisent dans les langues locales et gèrent les chaînes d'approvisionnement de produits dérivés en temps réel, ne vend pas du logiciel d'entreprise. Elle vend le commandement. L'argumentaire s'écrit tout seul : tout le monde utilise l'IA pour générer des images et des dissertations. Voici la machinerie qui fait tourner la logistique mondiale. Voici les clés.`,
+      `C'est d'ailleurs exactement le sermon qu'Alex Karp prêche à l'Occident depuis des années. Toute sa thèse dans The Technological Republic est que la Silicon Valley a gaspillé une génération de ses meilleurs esprits d'ingénierie sur des filtres photo, l'optimisation de clics publicitaires et des applis de livraison de repas pendant que les problèmes difficiles de l'État et de l'industrie restaient sans réponse. La Valley a pris les gens les plus intelligents en vie et les a pointés sur le trivial. L'Afrique a la chance de jouer le coup inverse dès le premier jour : pointer sa génération la plus talentueuse directement sur ce qui compte, agriculture, médecine, recettes, logistique, et sauter entièrement la décennie de trivialités. La culture de conviction de Karp se traduit elle aussi. Voici un PDG qui dit aux gens en désaccord avec la mission de l'entreprise, selon ses mots, « soyez bénis, ne travaillez pas ici ». Ce n'est pas de l'arrogance, c'est un filtrage, et c'est précisément l'énergie dont un mouvement de Builders a besoin : pas tout le monde, seulement ceux qui veulent travailler sur ce qui compte.`,
+      `La logique stratégique sous le spectacle est froide et solide. Les écosystèmes de développeurs se conquièrent une génération à la fois, et ils se conquièrent sur l'identité avant de se conquérir sur les fonctionnalités. Microsoft a gagné les années quatre-vingt-dix en faisant du premier ordinateur de chaque adolescent une machine Windows. Celui qui fait de la plateforme d'IA opérationnelle l'identité par défaut de la génération de Builders de l'Afrique possède la pile logicielle d'entreprise du continent pour trente ans, car ces jeunes de dix-neuf ans deviennent les directeurs techniques, les ministres et les fondateurs qui choisissent les outils pour tout ce qui est avancé dans cet essai. Les festivals et les vêtements techniques ne sont pas des dépenses de marketing. Ils sont le canal de distribution de toute la thèse.`,
+      `Et la boucle se referme là où elle a commencé : avec les pays eux-mêmes. Chaque jeune Builder attiré dans cet écosystème est désormais quelqu'un placé à l'intérieur de la machinerie de l'efficacité nationale plutôt qu'à l'extérieur, déboguant un réseau de transport au lieu d'en attendre un, bâtissant le modèle de fraude au lieu de perdre son épargne à la fraude. La gagnante du hackathon qui optimise la logistique de la chaîne du froid ne fait pas du démarchage pour Palantir. Elle récupère un pourcentage de la récolte de son pays. Le streamer qui fait tourner un maillage d'agents est une petite entreprise générant des recettes taxables et embauchant des monteurs. Multipliez cela sur une génération et les problèmes les plus durs de l'État, fuite des recettes, prestation de services, sécurité alimentaire, chômage des jeunes lui-même, sont travaillés par la population même qui les incarnait. C'est la version la plus profonde de l'argument : la pression démographique et la faiblesse institutionnelle sont le même problème, et cela résout les deux d'un seul mouvement en faisant des jeunes les opérateurs de la solution. Et parce que tout l'appareil tourne sur le statut, la compétition et le jeu plutôt que sur l'obligation, il tient. Personne ne s'épuise à quitter un mouvement qui a le goût de la victoire. Une génération qui prend plaisir à reconstruire ses propres pays ne part pas pour Lisbonne ou Londres. Elle reste, car pour la première fois la pièce la plus excitante sur Terre est celle dans laquelle elle se tient déjà.`,
+      `Les sceptiques diront que Palantir va là où sont l'argent et le pouvoir, et que l'Afrique a historiquement été là où ni l'un ni l'autre ne se concentrait. C'est exactement pourquoi l'argument fonctionne maintenant. L'histoire de croissance de Palantir a besoin de nouveaux terrains. Les marchés publics américain et européen sont profonds mais disputés. Le marché commercial croît mais est encombré. L'Afrique offre la seule chose que les marchés matures ne peuvent offrir : une construction institutionnelle à l'échelle d'un continent se déroulant en temps réel, avec des gouvernements et des entreprises qui peuvent sauter entièrement par-dessus les systèmes hérités parce qu'ils ne les ont jamais installés.`,
+      `L'entreprise qui devient la couche opérationnelle de l'agriculture africaine, de la logistique de santé et des finances publiques dans les années 2020 détient des positions sur le plus grand marché du travail de 2050 et l'un de ses plus grands marchés de consommation. Ce sont des relations de vingt ans, le genre pour lequel le modèle de Palantir est bâti. Les premiers entrants dans le logiciel institutionnel ne se font pas déloger facilement.`,
+      `Des incitations alignées ne sont pas un défaut. Elles sont le seul mécanisme qui ait jamais passé à l'échelle. Les programmes d'aide s'arrêtent quand les budgets changent. La charité s'évapore avec les cycles de l'actualité. Une relation commerciale où les recettes de Palantir dépendent du fonctionnement réel des institutions africaines est plus durable que n'importe quel engagement, car le fournisseur est puni par son propre échec. Les gens en profitent par des institutions qui fonctionnent. Palantir en profite par des contrats qui durent. Aucun de ces bénéfices n'existe sans l'autre.`,
+      `Rien de tout cela ne survit au contact du réel si les déploiements ne sont pas structurés correctement. Les données doivent rester souveraines, hébergées sous juridiction africaine, régies par le droit africain, avec des droits de sortie contractuels et une auditabilité complète. Les ingénieurs locaux doivent être formés sur la plateforme dès le premier jour, non comme un geste de responsabilité sociale d'entreprise mais parce que les déploiements sans appropriation locale meurent quand les consultants rentrent chez eux. Et les cas d'usage doivent commencer là où le bénéfice public est indéniable : récoltes, médecine, recettes, non surveillance. La filiation de renseignement de Palantir signifie qu'il sera surveillé, et il devrait accueillir d'être surveillé, car le moyen le plus rapide de perdre le continent est de confirmer le soupçon.`,
+      `Bien fait, ce n'est pas de l'extraction avec un meilleur habillage de marque. C'est la vente de capacité institutionnelle au seul continent qui en a le plus besoin, au seul moment où cela compte le plus, tarifée dans une monnaie que les deux parties comprennent.`,
+      `Les jeunes de dix-neuf ans sont déjà là. La seule question est de savoir si les institutions censées les servir sauront les voir.`,
+      `Les objections à cette thèse méritent d'être énoncées dans toute leur force avant d'être démontées, car ce sont les objections que soulèvera tout décideur africain sérieux, et elles s'effondrent toutes sous le même poids : le poids de l'alternative.`,
+      `<strong>L'objection de souveraineté.</strong> Aucun fournisseur étranger, dit l'argument, ne devrait siéger au cœur de l'infrastructure de l'État africain. Le continent a déjà vécu la dépendance déguisée en partenariat et l'a payée en décennies.`,
+      `Mais regardez ce qui siège réellement au cœur de l'infrastructure de l'État africain aujourd'hui. Des câbles sous-marins détenus par des consortiums étrangers. Des régions cloud détenues par des hyperscalers américains. Des équipements télécoms de Huawei, financés par des banques d'État chinoises, dans des réseaux de quarante pays. Des bases de données de santé bâties par des bailleurs qui s'éteignent à la fin du cycle de subvention. L'objection de souveraineté n'est pas une défense de la souveraineté. C'est une défense de l'arrangement actuel, dans lequel les données africaines circulent déjà entre des mains étrangères, mais de façon invisible, irresponsable et sans contrat que quiconque puisse faire respecter.`,
+      `La souveraineté n'est pas l'absence de fournisseurs étrangers. La Suisse fonctionne sur du logiciel étranger. Singapour, le plus jalousement souverain des petits États sur Terre, achète les meilleurs outils là où ils existent et les lie dans des contrats d'acier. La souveraineté, c'est la capacité de voir son propre pays, de taxer sa propre économie, d'auditer ses propres fournisseurs et de repartir avec ses données intactes. Un déploiement Palantir avec hébergement sous juridiction africaine, propriété contractuelle des données, journaux d'audit complets et droits de sortie offre plus de souveraineté que le statu quo, non moins, car pour la première fois la dépendance est écrite, tarifée et résiliable. Les arrangements coloniaux n'ont jamais été résiliables. C'est toute la différence.`,
+      `Et posez la question plus difficile : qui est le fournisseur alternatif ? La contrepartie réaliste pour l'infrastructure numérique africaine à grande échelle n'est pas une ONG genevoise. C'est Pékin, offrant des ensembles intégrés de systèmes de ville intelligente prêts pour la surveillance, avec un financement opaque et sans clause de sortie. Face à ce champ, une entreprise cotée aux États-Unis, redevable des obligations de divulgation de la SEC, des tribunaux occidentaux, du contrôle du Congrès et d'un cours de bourse qui punit le scandale, n'est pas l'option dangereuse. C'est l'option responsable.`,
+      `<strong>L'objection de filiation.</strong> Palantir a construit pour les agences de renseignement et l'application des lois d'immigration, donc ses outils concentreraient forcément le pouvoir étatique d'une manière à laquelle de jeunes démocraties ne peuvent survivre.`,
+      `Cet argument confond la provenance avec le destin. Le GPS a été bâti par le Pentagone ; il guide aujourd'hui des ambulances à Kampala. Internet était un projet de défense ; il transporte M-Pesa. La question pertinente au sujet de tout outil puissant n'est jamais où il est né mais comment il est gouverné au point d'usage, et ici la filiation de Palantir n'est pas la faiblesse. C'est la qualification. Une entreprise forgée à l'intérieur des institutions les plus étroitement surveillées sur Terre, bâtie pour résister aux audits, aux mandats et aux inspecteurs généraux, arrive avec une machinerie de gouvernance, contrôles d'accès granulaires, journaux immuables, limitation de finalité, que les éditeurs de logiciels grand public n'ont jamais eu à bâtir. Les outils qui concentrent le pouvoir dangereusement sont ceux sans journaux, sans paliers d'accès et sans piste d'audit. Les ministères africains en regorgent aujourd'hui, sous la forme de tableurs et de mots de passe partagés.`,
+      `Il y a une erreur plus profonde dans cette objection : l'hypothèse qu'un État faible est un État sûr. Il ne l'est pas. Au Sahel, les États qui ne peuvent voir leur propre territoire sont ceux qui le perdent au profit d'hommes armés de kalachnikovs et de téléphones satellitaires. Les jeunes démocraties qui ont échoué n'ont pas échoué par excès de compétence administrative. Elles ont échoué par aveuglement, par vacuité du trésor, et par le vide que des alternatives armées se sont empressées de combler. Un État capable de détecter la fraude dans les marchés publics, de livrer des vaccins et de payer ses enseignants à temps n'est pas une proto-tyrannie. C'est le seul type d'État qui survit assez longtemps pour rester une démocratie. La capacité n'est pas l'ennemie de la liberté. L'effondrement l'est.`,
+      `<strong>L'objection du « construisez-le localement ».</strong> L'argent devrait financer directement la capacité logicielle africaine, ingénieurs locaux, clouds locaux, infrastructure publique open source sur le modèle indien, détenue par aucun fournisseur.`,
+      `C'est l'objection la plus séduisante et la plus coûteuse, car son coût se libelle en temps, la seule monnaie que l'horloge démographique ne rembourse pas. La pile numérique de l'Inde est magnifique et a pris deux décennies, une base d'ingénierie préexistante profonde, et un État doté d'une capacité administrative continue pour la bâtir. Les jeunes de dix-neuf ans de l'Afrique n'ont pas deux décennies. Le choix présenté comme « Palantir ou capacité locale » est faux. Le vrai choix est « capacité institutionnelle maintenant, avec des ingénieurs locaux formés au sein de déploiements de classe mondiale » ou « cécité institutionnelle pendant vingt ans de plus pendant que la pile souveraine parfaite est débattue en conférences ».`,
+      `Personne ne dit qu'un hôpital doit forger ses propres scalpels pour être souverain sur ses opérations. La thèse du saut de grenouille qui a bâti l'argent mobile africain n'a pas attendu une industrie du combiné autochtone. Elle a pris la meilleure plateforme disponible et a bâti le génie africain par-dessus. La même logique s'applique ici, avec un ajout qui transforme l'objection en stratégie : chaque déploiement forme des ingénieurs africains sur le logiciel opérationnel le plus avancé sur Terre. Ces ingénieurs ne s'évaporent pas. Ils deviennent les fondateurs de la capacité locale que les critiques réclament, comme les anciens d'Andela ont ensemencé un écosystème de startups. Palantir n'est pas le substitut de la souveraineté logicielle africaine. Bien déployé, il en est l'université.`,
+      `<strong>Le récit du monstre lui-même.</strong> Sous les trois objections court une seule conviction esthétique : que Palantir est simplement une entreprise sinistre, et que les entreprises sinistres devraient être tenues à l'écart des lieux vulnérables.`,
+      `Il vaut la peine de noter que Palantir lui-même n'a jamais bronché face à ce récit, ce qui est en soi révélateur. Karp passe à la télévision et dit des choses qu'aucun autre PDG de logiciel ne survivrait à dire, que les outils de l'entreprise effraient les ennemis de ses clients et parfois les tuent, qu'il prend plaisir à voir les vendeurs à découvert se brûler. Une entreprise qui ne cache rien de ce qu'elle est présente un profil de risque très différent de celle qui blanchit sa nature à travers le marketing. Les négociateurs africains assis en face de Palantir savent exactement ce qu'ils achètent et exactement ce que l'entreprise croit. Comparez cela aux fournisseurs qui arrivent enveloppés de langage de développement et de partenariat pendant que les vraies clauses vivent dans des annexes que personne ne traduit. La candeur radicale sur le pouvoir n'est pas le signal d'alarme. C'est l'argumentaire apaisant qui l'est.`,
+      `Les lieux vulnérables n'ont pas le luxe de choisir leurs partenaires par l'esthétique. Ils choisissent par les résultats. Le récit du monstre a été fabriqué dans les sections de commentaires de pays dont les institutions fonctionnent déjà, où la peur marginale est la surveillance parce que la rareté a été résolue il y a des générations. La peur marginale de l'Afrique n'est pas d'être surveillée. C'est d'être gaspillée : récoltes qui pourrissent, médicaments qui périment, recettes qui fuient, et une génération de jeunes extraordinaires enfermée hors d'économies qui ne peuvent la voir. Jugée à l'aune de cette réalité, l'entreprise offrant une capacité institutionnelle vérifiable, liée par contrat et auditable n'est pas le monstre de l'histoire. Le monstre est le statu quo, et il est déjà en train de dévorer.`,
+      `Rien de cela ne signifie signer à l'aveugle. Chaque garde-fou nommé plus haut, données sous juridiction africaine, droits de sortie, accès d'audit, mandats d'ingénierie locale, périmètre sans surveillance, a sa place dans le contrat, en langage exécutoire, et les négociateurs africains devraient les extraire tous. Les partenaires solides méritent des contrats solides. Ce n'est pas de la méfiance. C'est ainsi que se traitent des amis qui comptent rester vingt ans.`,
+      `Les critiques ont raison de dire que l'Afrique s'est déjà brûlée à des partenariats. Ils ont tort sur la leçon. La leçon de chaque partenariat raté n'a jamais été « ne prenez aucun partenaire ». C'était « prenez des partenaires dont vous pouvez vérifier les incitations et punir les échecs ». À cette aune, honnêtement appliquée, Palantir n'est pas la menace à la porte. C'est l'allié que le moment exige, arrivant à l'heure exacte où l'horloge sonne le plus fort.`,
+      `Le débat est vivant et devrait le rester : les spécialistes de la souveraineté, les défenseurs des droits numériques et les partisans de l'infrastructure publique ouverte continuent de presser ces objections de bonne foi, et tout déploiement réel sera négocié face à elles, clause par clause. C'est ainsi que cela doit être. L'argument ci-dessus est que les objections trouvent réponse, non qu'elles doivent rester sans être posées.`
+    ],
+    h: [
+      `Le vrai goulot d'étranglement n'est pas l'argent, c'est la lisibilité`,
+      `L'horloge démographique est l'argument`,
+      `À quoi cela ressemble en pratique`,
+      `Ce n'est pas une hypothèse. Cela a déjà commencé.`,
+      `Le playbook : comment cela se déploie réellement`,
+      `Le paradoxe de l'emploi, affronté honnêtement`,
+      `Pendant ce temps, l'échelle brûle dans le G7`,
+      `Le dernier kilomètre est culturel`,
+      `Pourquoi cela profite à Palantir, et pourquoi c'est très bien ainsi`,
+      `Les conditions honnêtes`,
+      `Répondre aux critiques, à toutes`
+    ],
+    figLabels: [
+      `Fig. 01 — Des fragments à l'ontologie`,
+      `Fig. 02 — La génération montante`,
+      `Fig. 03 — Le playbook des marchés émergents`,
+      `Fig. 04 — Architecture de distribution`,
+      `Fig. 05 — L'évidement`,
+      `Fig. 06 — Le volant d'inertie`
+    ],
+    figNotes: [
+      `Ce qui ne peut être vu ne peut être servi. La lisibilité est le multiplicateur.`,
+      `Population en âge de travailler (15–64 ans), projections de l'ONU. Pointillés = projeté. Chaque année, des dizaines de millions atteignent l'âge de travailler.`,
+      null,
+      `Une plateforme. Des mains locales. Des enclaves souveraines à chaque point de déploiement.`,
+      `Structurel, non cyclique. Les postes supprimés lors des ralentissements ne reviennent pas.`,
+      `La pression démographique et la faiblesse institutionnelle sont le même problème. Un seul mouvement résout les deux.`
+    ],
+    svg: [
+      ['FRAGMENTS','REGISTRES PAPIER','TABLEURS','WHATSAPP','BASES ANCIENNES','SYST. BAILLEURS','ONTOLOGIE','UN MODÈLE VIVANT','IMAGE','OPÉRATIONNELLE','VOIR · DÉCIDER · EXÉCUTER'],
+      ['1,5 Md','1,0 Md','0,5 Md','2020','2030','2040','2050','AFRIQUE ~1,6 Md','EUROPE ~0,4 Md',"+0,8 Md D'ICI 2050",'≈ MAIN-D\'ŒUVRE ACTUELLE DE LA CHINE'],
+      null,
+      ['PLATEFORME','CENTRALE','FOUNDRY · AIP','INTÉGRATEURS','RÉGIONAUX','FORMER LES FORMATEURS','BUILDERS ET','OPÉRATEURS','FONDATEURS GEN Z','AGRICULTURE','SANTÉ','RECETTES','ENTREPRISE'],
+      null,
+      ['BUILDERS','GEN Z · FORMÉS','DÉPLOIEMENT','RÉCOLTES · SOINS · CASH','EFFICACITÉ','NATIONALE · FISCALE','STATUT · CAPITAL','FINANCEMENT · IDENTITÉ','19','UNE GÉNÉRATION, QUI SE COMPOSE']
+    ],
+    specH3: [
+      null, null,
+      [
+        `Un réseau d'intégrateurs, non des ingénieurs déployés en première ligne`,
+        `Des enclaves souveraines à confiance zéro`,
+        `Une tarification à l'usage, non des contrats de ministère de la Défense`,
+        `L'ingestion automatisée du monde analogique`,
+        `L'argument politique : multiplicateur d'assiette fiscale, non efficacité`
+      ],
+      null, null, null
+    ],
+    specP: [
+      null, null,
+      [
+        `Le déploiement passe à des intégrateurs boutiques régionaux et à des Builders locaux selon un modèle de formation des formateurs. Le talent client et les partenaires locaux font le gros du travail ; Palantir devient un distributeur de logiciels à forte marge plutôt qu'une firme de conseil limitée par ses ressources. Le modèle Hence, généralisé.`,
+        `Foundry et AIP fonctionnent à l'intérieur d'enclaves edge-cloud isolées et cryptographiquement sécurisées, centres de données souverains ou régions cloud durcies, créant un tissu de données isolé. Les données d'entreprise sont ingérées et optimisées localement sans exposer le cœur de la plateforme aux vulnérabilités matérielles du réseau environnant.`,
+        `Les contrats annuels forfaitaires de plusieurs millions cèdent la place à des paliers de calcul et de jetons de type service public pour startups et PME. Le routage sémantique et la distillation de modèles font qu'un fondateur ne paie que les blocs consommés, et l'abonnement croît avec l'entreprise, non en avance sur elle. Un jeune de dix-neuf ans peut se payer la porte d'entrée.`,
+        `Là où les données sont papier, PDF et tableur hérité, des maillages d'agents les ingèrent et les structurent automatiquement en une couche sémantique propre et interrogeable. Le jumeau numérique d'un ministère ou d'une chaîne de valeur s'assemble de lui-même avec une plomberie humaine quasi nulle, seul moyen de jamais franchir le déficit de maturité des données à l'échelle continentale.`,
+        `Les gouvernements n'achètent pas de « l'efficacité opérationnelle », ils achètent de la croissance. L'argument, c'est l'accélération du PIB : des ports optimisés, des réseaux financiers numérisés et des recettes récupérées qui élargissent l'économie nationale de plusieurs points de pourcentage, finançant les postes d'opérateur à haut statut vers lesquels la jeune main-d'œuvre monte.`
+      ],
+      null, null, null
+    ],
+    caps: [
+      null, null, null, null,
+      [
+        `Offres en début de carrière, Canada<br>affaires / marketing / RH, sur un an`,
+        `Hausse de la demande de compétences senior<br>sur les postes juniors exposés à l'IA`,
+        `Travailleurs du savoir américains devant<br>changer de rôle (Goldman Sachs)`
+      ],
+      null
+    ],
+    mhead: [ null, null, null, null, `Main-d'œuvre déplacée projetée sur la fenêtre d'adoption`, null ]
+  };
+
+  function apply(d, lang) {
+    navTag.textContent = d.navTag;
+    crumb.innerHTML = d.crumb;
+    legend.innerHTML = d.legend;
+    h1El.textContent = d.h1;
+    subtitleEl.textContent = d.subtitle;
+    metaSpans[0].textContent = d.metaSpan0;
+    metaSpans[2].innerHTML = d.metaSpan2;
+    backEl.innerHTML = d.back;
+    pEls.forEach(function (e, i) { if (d.p[i] != null) e.innerHTML = d.p[i]; });
+    hEls.forEach(function (e, i) { if (d.h[i] != null) e.textContent = d.h[i]; });
+    figs.forEach(function (fig, fi) {
+      var l = fig.querySelector('.fig-label'); if (l && d.figLabels[fi] != null) l.textContent = d.figLabels[fi];
+      var n = fig.querySelector('.fig-note'); if (n && d.figNotes[fi] != null) n.textContent = d.figNotes[fi];
+      if (d.svg[fi]) { toArr(fig.querySelectorAll('svg text')).forEach(function (t, ti) { if (d.svg[fi][ti] != null) t.textContent = d.svg[fi][ti]; }); }
+      if (d.specH3[fi]) { toArr(fig.querySelectorAll('.spec h3')).forEach(function (x, xi) { if (d.specH3[fi][xi] != null) x.textContent = d.specH3[fi][xi]; }); }
+      if (d.specP[fi]) { toArr(fig.querySelectorAll('.spec p')).forEach(function (x, xi) { if (d.specP[fi][xi] != null) x.textContent = d.specP[fi][xi]; }); }
+      if (d.caps[fi]) { toArr(fig.querySelectorAll('.stat .cap')).forEach(function (x, xi) { if (d.caps[fi][xi] != null) x.innerHTML = d.caps[fi][xi]; }); }
+      var mh = fig.querySelector('.m-head span'); if (mh && d.mhead[fi] != null) mh.textContent = d.mhead[fi];
+    });
+    htmlEl.setAttribute('lang', lang);
+  }
+
+  var current = 'en';
+  var btn = document.getElementById('langToggle');
+  var enSpan = btn.querySelector('.l-en');
+  var frSpan = btn.querySelector('.l-fr');
+  function setState(lang) {
+    enSpan.classList.toggle('active', lang === 'en');
+    frSpan.classList.toggle('active', lang === 'fr');
+  }
+  btn.addEventListener('click', function () {
+    current = (current === 'en') ? 'fr' : 'en';
+    apply(current === 'fr' ? FR : EN, current);
+    setState(current);
+  });
+  setState('en');
+})();
+</script>
+</body>
+</html>
